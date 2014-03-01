@@ -30,13 +30,13 @@ echo - Enable Virtual Hosts -
 sudo a2dissite default
 sudo a2dissite 000-default
 
-sudo cp vhost/dev.com /etc/apache2/sites-available/dev.com
-sudo cp vhost/dev.com /etc/apache2/sites-available/dev.com.conf
-sudo cp vhost/www.dev.com /etc/apache2/sites-available/www.dev.com
-sudo cp vhost/www.dev.com /etc/apache2/sites-available/www.dev.com.conf
+sudo cp vhost/triatlonafondo.com /etc/apache2/sites-available/triatlonafondo.com
+sudo cp vhost/triatlonafondo.com /etc/apache2/sites-available/triatlonafondo.com.conf
+sudo cp vhost/www.triatlonafondo.com /etc/apache2/sites-available/www.triatlonafondo.com
+sudo cp vhost/www.triatlonafondo.com /etc/apache2/sites-available/www.triatlonafondo.com.conf
 
-sudo a2ensite dev.com
-sudo a2ensite www.dev.com
+sudo a2ensite triatlonafondo.com
+sudo a2ensite www.triatlonafondo.com
 sudo service apache2 restart
 
 echo - Fix Permissions -
