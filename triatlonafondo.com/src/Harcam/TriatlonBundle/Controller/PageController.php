@@ -10,7 +10,7 @@ class PageController extends Controller
 {
     public function homeAction()
     {
-        return $this->render();
+        return $this->render('HarcamTriatlonBundle:Page:home.html.twig');
     }
 
     public function pageAction($page)
@@ -18,13 +18,13 @@ class PageController extends Controller
         switch($page)
         {
             case 'contact':
-                $layout = "";
+                $layout = 'HarcamTriatlonBundle:Page:contact.html.twig';
                 break;
             case 'gallery':
-                $layout = "";
+                $layout = 'HarcamTriatlonBundle:Page:gallery.html.twig';
                 break;
             default:
-                $layout = "";
+                $layout = 'HarcamTriatlonBundle:Page:home.html.twig';
                 break;
         }
 

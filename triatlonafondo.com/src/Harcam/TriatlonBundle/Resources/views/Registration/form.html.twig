@@ -1,0 +1,20 @@
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+<div>
+    {{ form_label(form.name) }}
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name) }}
+</div>
+
+<div>
+    {{ form_label(form.lastName) }}
+    {{ form_errors(form.lastName) }}
+    {{ form_widget(form.lastName) }}
+</div>
+
+<div>
+    {{ form_widget(form.save) }}
+</div>
+
+{{ form_end(form) }}

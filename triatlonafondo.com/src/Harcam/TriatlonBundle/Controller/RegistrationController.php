@@ -10,9 +10,51 @@ use Harcam\TriatlonBundle\Entity\Client;
 
 class RegistrationController extends Controller
 {
-    public function exportAction(Request $request)
+    public function signupAction(Request $request)
     {
-        return new Response();
+        // Initialize Client object to generate a form
+        $client = new Client();
+
+        $form = $this->createFormBuilder($client)
+            ->add('name', 'text')
+            ->add('fullName', 'text')
+            ->add('save', 'submit')
+            ->getForm();
+
+        return $this->render('HarcamTriatlonBundle:Registration:form.html.twig',
+                             array('form' => $form->createView())
+        );
+    }
+
+    public function signupProcessAction(Request $request)
+    {
+        // Initialize Client object to handle the form
+        $client = new Client();
+
+        $form = $this->createFormBuilder($client)
+            ->add('name', 'text')
+            ->add('lastName', 'text', array('label' => 'Apellidos'))
+            ->add('save', 'submit')
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        // Check that the required fields are filled in
+        if ($form->isValid()) {
+            // perform some action, such as saving the task to the database
+
+            return $this->redirect($this->generateUrl('task_success'));
+        } else {
+            // If invalid, render the same form again..
+            return $this->render('HarcamTriatlonBundle:Registration:form.html.twig',
+                array('form' => $form->createView())
+            );
+        }
+    }
+
+    public function signupSuccessAction(Request $request)
+    {
+
     }
 
 }
