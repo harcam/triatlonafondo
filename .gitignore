@@ -7,3 +7,6 @@ vendor/*
 */cache/*
 web/uploads/*
 web/bundles/*
+
+# Composer
+*composer.phar*
