@@ -1,0 +1,179 @@
+<div class="content">
+	<div id="Registro">
+		<h3>Registro</h3>
+		<?php
+	if ( isset( $_POST["Inscribir"] ) ) {
+	  processForm();
+	} else {
+	  displayForm( array() );
+	}
+	function validateField( $fieldName, $missingFields ) {
+	  if ( in_array( $fieldName, $missingFields ) ) {
+	    echo ' class="error"';
+	  }
+	}
+	function setValue( $fieldName ) {
+	  if ( isset( $_POST[$fieldName] ) ) {
+	    echo $_POST[$fieldName];
+	  }
+	}
+	function setChecked( $fieldName, $fieldValue ) {
+	  if ( isset( $_POST[$fieldName] ) and $_POST[$fieldName] == $fieldValue ) {
+	    echo ' checked="checked"';
+	  }
+	}
+	function setSelected( $fieldName, $fieldValue ) {
+	  if ( isset( $_POST[$fieldName] ) and $_POST[$fieldName] == $fieldValue ) {
+	    echo ' selected="selected"';
+	  }
+	}
+	
+	function displayForm( $missingFields ) {
+	?>
+		<?php if ( $missingFields ) { ?>
+    <p class="error">Algunos datos requeridos no fueron llenados, favor de llenar los campos resaltados.</p>
+    <?php } else { ?>
+    <p>Bienvenido al registro del Triatlón Tritanes, favor de llenar los campos con un (*). Al terminar presionar el botón "Inscribir".</p>
+<?php } ?>
+
+		<form id="form" action="registrotri.php" method="post">
+			<div>
+			<label for="distancia">Distancia*:</label>
+			<select align="center" name="distancia"<?php setValue( "distancia" ) ?>>
+					<option value="SS">Super Sprint</option>
+				</select><br/>
+			<label for="categoria">Categoría*:</label>
+			<select name="categoria"<?php setValue( "categoria" ) ?> >
+					<option value="IF">Femenil 14 a 15 años</option>
+					<option value="JF">Femenil 16 a 19 años</option>
+					<option value="R">Femenil 20 a 24 años</option>
+					<option value="O">Femenil 25 a 29 años</option>
+					<option value="P">Femenil 30 a 34 años</option>
+					<option value="Q">Femenil 35 a 39 años</option>
+					<option value="R">Femenil 40 a 44 años</option>
+					<option value="S">Femenil 45 a 49 años</option>
+					<option value="T">Femenil 50 a 54 años</option>
+					<option value="V">Femenil 55 a 59 años</option>
+					<option value="IC">Varonil 14 a 15 años</option>
+					<option value="JV">Varonil 16 a 19 años</option>
+					<option value="A">Varonil 20 a 24 años</option>
+					<option value="B">Varonil 25 a 29 años</option>
+					<option value="C">Varonil 30 a 34 años</option>
+					<option value="D">Varonil 40 a 44 años</option>
+					<option value="E">Varonil 45 a 49 años</option>
+					<option value="F">Varonil 50 a 54 años</option>
+					<option value="G">Varonil 55 a 59 años</option>
+					<option value="H">Varonil 60 y mayores</option>
+				</select><br/>
+			<label for="nombre"<?php validateField( "nombre",$missingFields ) ?> > Nombre*:</label>
+			<input type="text" name="nombre" <?php setValue( "nombre" ) ?>/><br/>
+			<label for="apellido" <?php validateField( "apellido",$missingFields ) ?>>Apellidos*:</label>
+			<input type="text" name="apellido" <?php setValue( "apellido" ) ?>/><br/>
+			<label for="afiliacion" <?php validateField( "afiliacion",$missingFields ) ?>>Numero de afiliación (FMTRI)*:</label>
+			<input type="text" name="afiliacion" <?php setValue( "afiliacion" ) ?>/><br/>
+			<label for="equipo">Equipo:</label>
+			<input type="text" name="equipo"<?php setValue( "equipo" ) ?>/><br/>
+			<label for="tel">Teléfono de contacto:</label>
+			<input type="text" name="tel"<?php setValue( "tel" ) ?>/><br/>
+			<label for="email" <?php validateField( "email",$missingFields ) ?>>Email*:</label>
+			<input type="text" name="email"<?php setValue( "email" ) ?>/>
+			<!-- Boton de pago-->
+			<!--<input type="submit" name="Inscribir" value="Inscribir"/><br/>-->
+			
+			<form id="paypal_form" class="paypal" action="payments.php" method="post">
+			<input name="cmd" type="hidden" value="_xclick" />
+			<input name="no_note" type="hidden" value="1" />
+			<input name="lc" type="hidden" value="MEX" />
+			<input name="currency_code" type="hidden" value="MXN" />
+			<input name="bn" type="hidden" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+			<input name="first_name" type="hidden" <?php setValue( "nombre" ) ?> />
+			<input name="last_name" type="hidden" <?php setValue( "apellido" ) ?> />
+			<input name="payer_email" type="hidden" <?php setValue( "email" ) ?> />
+			<input name="item_number" type="hidden" value="123456" />
+			<input type="submit" value="Realizar Pago" name="Inscribir" />
+		    </form>
+			<!-- Fuente para PayPal integration: http://www.evoluted.net/thinktank/web-development/paypal-php-integration-->
+			
+			</div>
+		</form>
+		<div style="clear:both;">
+			
+		<?php }
+		function processForm() {
+	  $requiredFields = array( "nombre", "apellido", "afiliacion",
+	 "email");
+	  $missingFields = array();
+	  $errorMessages = array();
+	  
+	  $member = new Member( array(
+    "distancia" => isset( $_POST["distancia"] ) ? preg_replace
+( "/[^ \-\_a-zA-Z0-9]/", "", $_POST["distancia"] ) : "",
+    "categoria" =>  isset( $_POST["categoria"] ) ? preg_replace
+( "/[^ \-\_a-zA-Z0-9]/", "", $_POST["categoria"] ) : "",
+    "nombre" => isset( $_POST["nombre"] ) ? preg_replace
+( "/[^ \'\-a-zA-Z0-9]/", "", $_POST["nombre"] ) : "",
+    "apellido" => isset( $_POST["apellido"] ) ? preg_replace
+( "/[^ \'\-a-zA-Z0-9]/", "", $_POST["apellido"] ) : "",
+    "afiliacion" => isset( $_POST["afiliacion"] ) ? preg_replace
+    ( "/[^ \'\-a-zA-Z0-9]/","", $_POST["afiliacion"] ) : "",
+    "equipo" => isset( $_POST["equipo"] ) ? preg_replace
+( "/[^ \'\-a-zA-Z0-9]/", "", $_POST["equipo"] ) : "",
+    "tel" => isset( $_POST["tel"] ) ? preg_replace
+( "/[^ \@\.\-\_a-zA-Z0-9]/", "", $_POST["tel"] ) : "",
+    "email" => isset( $_POST["email"] ) ? preg_replace
+( "/[^ \@\.\-\_a-zA-Z0-9]/", "", $_POST["email"] ) : "",
+    
+    "fecha" => date( "Y-m-d" )
+  ) );
+	  
+	  foreach ( $requiredFields as $requiredField ) {
+	    if ( !isset( $_POST[$requiredField] ) or !$_POST[$requiredField] ) {
+	      $missingFields[] = $requiredField;
+	    }
+	}
+	  if ( $missingFields ) {
+	    displayForm( $missingFields );  
+	  }
+	  
+	  if ( Member::getByUsername( $member->getValue( "username" ) ) ) {
+	 $errorMessages[] = '<p class="error">A member with that username
+	 already exists in the database. Please choose another username.</p>';
+     }
+	if ( Member::getByEmailAddress( $member->getValue( "emailAddress" ) ) ) {
+	 $errorMessages[] = '<p class="error">A member with that email address
+	already exists in the database. Please choose another email address, or
+	contact the webmaster to retrieve your password.</p>';
+}
+	  else {
+	    displayThanks(); // Aquí debe de mandar al pago!!
+	    //payPal();
+	    //header( "Location: Confirmacion.html" );
+	    //exit;
+     exit;
+	} }
+		
+		
+		
+		
+		
+		
+		
+		
+		function displayThanks() {
+		?>
+		</div>
+		<div id="Confirmation">
+        <h1>Gracias</h1>
+        <p>Tus datos se han guardado de manera correcta</p>
+    <?php
+} ?>
+		
+			<br/><p>Para registro al <strong>Relevo Mixto</strong>, envía un correo a tritanes@gmail.com con los 4 nombres de los participantes y nombre del equipo!</p>
+			
+
+		</div>
+	</div>
+
+
+</div>
+<!-- end .content -->
