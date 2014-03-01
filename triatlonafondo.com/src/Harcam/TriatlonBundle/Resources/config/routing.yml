@@ -1,0 +1,16 @@
+## Subscribe
+niva_shs_subscribe:
+    pattern:    /api/subscribe
+    defaults:   { _controller: NivaShsSubsBundle:Subscribe:subscribe }
+    methods:    [POST]
+
+niva_shs_unsubscribe:
+    pattern:    /api/unsubscribe
+    defaults:   { _controller: NivaShsSubsBundle:Subscribe:unsubscribe }
+    methods:    [POST]
+
+## WebPin
+niva_shs_send_pin:
+    pattern:    /api/sendpin
+    defaults:   { _controller: NivaShsSubsBundle:WebPin:sendPin }
+    methods:    [POST]

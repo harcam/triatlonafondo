@@ -1,0 +1,7 @@
+parameters:
+#    niva_control.example.class: Niva\ControlBundle\Example
+
+services:
+#    niva_control.example:
+#        class: %niva_control.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
