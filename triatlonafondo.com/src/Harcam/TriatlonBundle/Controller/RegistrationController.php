@@ -1,20 +1,14 @@
 <?php
 
-namespace NivaShs\SubsBundle\Controller;
+namespace Harcam\TriatlonBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
-use Niva\SharedBundle\Entity\Client;
-use Niva\SharedBundle\Entity\Club;
+use Harcam\TriatlonBundle\Entity\Client;
 
-use Niva\SharedBundle\Entity\Device;
-use Niva\SharedBundle\Entity\DeviceRegion;
-use Niva\SharedBundle\Entity\DeviceLog;
-
-class ApiController extends Controller
+class RegistrationController extends Controller
 {
     public function exportAction(Request $request)
     {
@@ -337,140 +331,5 @@ class ApiController extends Controller
 
     }
 
-    /**
-     * Return the client's public IP address in plain text
-     */
-    public function ipechoAction(Request $request)
-    {
-        $ip = $request->getClientIp();
-        return new Response((string)$ip);
-    }
-
-    /**
-     * Build a valid Portalone URL from an existing club configuration
-     *
-     * @param Club $club
-     * @return string
-     */
-    private function buildPortaloneUrl(Club $club)
-    {
-        $url = $club->getSmtPortaloneUrl();
-        $url .= "&pid=" . $club->getSmtProductId();
-        $url .= "&sid=" . $club->getSmtServiceId();
-        $url .= "&spid=" . $club->getSmtProviderId();
-        $url .= "&access=wap"; # Static. NOTE: Doesn't work with 'web'. Fix.
-        $url .= "&language=es"; # Static.
-        $url .= "&url=" . $club->getSmtReturnUrl();
-        $url .= "&pic=" . $club->getSmtImage();
-        $url .= "&css=" . $club->getSmtCss();
-        $url .= "&nocache=" . rand(1000000, 9999999); # Prevent cache'd static loading..
-
-        return $url;
-    }
-
-    /**
-     * Validate a user request:
-     *   if invalid, returns a proper error response integer
-     *   if valid, returns a device object
-     * @param $request Request
-     * @return int
-     */
-    private function validateUser(Request $request)
-    {
-        // Check for authentication type
-        if( $request->request->has('imei') )
-        {
-            $imei = $request->request->get('imei');
-
-            // Try to load the device
-            $device = $this->getDoctrine()->getRepository('NivaSharedBundle:Device')
-                ->findOneBy(array('imei' => $imei));
-
-            if (!$device) {
-                // Error: IMEI doesn't exist
-                return 6;
-            }
-        } elseif( $request->request->has('device') && $request->request->has('key') )
-        {
-            $code = $request->request->get('device');
-            $key = $request->request->get('key');
-
-            // Try to load the device
-            $device = $this->getDoctrine()->getRepository('NivaSharedBundle:Device')
-                ->findOneBy(array('code' => $code));
-
-            if (!$device) {
-                // Error: Device doesn't exist
-                return 3;
-            }
-
-            // Check the validity of the secret
-            if( $key != $device->getApiKey() )
-            {
-                // Error: Invalid API key
-                return 4;
-            }
-        } else {
-            return 2;
-        }
-
-        // Check if device is authorized
-        if ( !$device->getEnabled() )
-        {
-            // Error: API access disabled for device
-            return 5;
-        }
-
-        return $device;
-    }
-
-    private function generateErrorResponse($error)
-    {
-        switch($error)
-        {
-            case 1:
-                $json = array('error' => '01',
-                    'details' => 'Malformed JSON payload');
-                break;
-            case 2:
-                $json = array('error' => '02',
-                    'details' => 'Missing parameter(s) in request');
-                break;
-            case 3:
-                $json = array('error' => '03',
-                    'details' => 'Device code does not exist');
-                break;
-            case 4:
-                $json = array('error' => '04',
-                    'details' => 'Invalid device API key');
-                break;
-            case 5:
-                $json = array('error' => '05',
-                    'details' => 'API access has been disabled for device');
-                break;
-            case 6:
-                $json = array('error' => '06',
-                    'details' => 'IMEI does not exist');
-                break;
-            case 7:
-                $json = array('error' => '07',
-                    'details' => 'Invalid export mode selected in configuration');
-                break;
-            case 8:
-                $json = array('error' => '06',
-                    'details' => 'Misconfigured device region');
-                break;
-            case 20:
-                $json = array('error' => '20',
-                    'details' => 'There are no more records to export');
-                break;
-            default:
-                $json = array('error' => '99',
-                    'details' => 'Unknown error occurred');
-                break;
-        }
-
-        return new JsonResponse($json);
-    }
 
 }

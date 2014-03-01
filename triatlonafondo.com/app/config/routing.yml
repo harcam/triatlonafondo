@@ -1,7 +1,3 @@
-niva_shared:
-    resource: "@NivaSharedBundle/Resources/config/routing.yml"
-    prefix:   /
-
-niva_slambo:
-    resource: "@NivaSLamboBundle/Resources/config/routing.yml"
+harcam_triatlon:
+    resource: "@HarcamTriatlonBundle/Resources/config/routing.yml"
     prefix:   /
