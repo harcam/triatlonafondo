@@ -1,9 +1,9 @@
-# Ignore everything but the installation files
-*
-!.gitignore
-!install.sh
-!README.md
-!vhost
-!vhost/dev.com
-!vhost/dev_htaccess
-!vhost/www.dev.com
+# Bootstrap
+app/bootstrap*
+
+# Symfony directories
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*

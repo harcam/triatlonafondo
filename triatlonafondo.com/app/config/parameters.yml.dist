@@ -1,0 +1,19 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: smt
+    database_user: ~
+    database_password: ~
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: 98b03f49b1391d04174919d1b1ecda993e1cf9b3
+    api_secret: ~
+    bootstrap_theme: ~
+    company_name: ~
+    api_export_mode: ~
+    api_export_numbers_per_query: ~
