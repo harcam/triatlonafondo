@@ -1,16 +1,19 @@
-## Subscribe
-niva_shs_subscribe:
-    pattern:    /api/subscribe
-    defaults:   { _controller: NivaShsSubsBundle:Subscribe:subscribe }
-    methods:    [POST]
+## Page Controller
+harcam_triatlon_home:
+    pattern:    /
+    defaults:   { _controller: HarcamTriatlonBundle:Page:home }
 
-niva_shs_unsubscribe:
-    pattern:    /api/unsubscribe
-    defaults:   { _controller: NivaShsSubsBundle:Subscribe:unsubscribe }
-    methods:    [POST]
+harcam_triatlon_page:
+    pattern:    /p/{page}
+    defaults:   { _controller: HarcamTriatlonBundle:Page:page }
 
-## WebPin
-niva_shs_send_pin:
-    pattern:    /api/sendpin
-    defaults:   { _controller: NivaShsSubsBundle:WebPin:sendPin }
+## Registration Controller
+harcam_triatlon_signup:
+    pattern:    /signup
+    defaults:   { _controller: HarcamTriatlonController:Registration:signup }
+    methods:    [GET]
+
+harcam_triatlon_signup_process:
+    pattern:    /signup
+    defaults:   { _controller: HarcamTriatlonController:Registration:signupProcess }
     methods:    [POST]
