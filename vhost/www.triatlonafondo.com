@@ -2,7 +2,7 @@
 ServerName      www.triatlonafondo.com
 ServerAdmin     tritanes@gmail.com
 ServerSignature email
-DocumentRoot    /var/www/www.triatlonafondo.com/web
+DocumentRoot    /var/www/triatlonafondo.com/web
 RewriteEngine   On
 <Directory /var/www/triatlonafondo.com/web>
 AllowOverride   All
