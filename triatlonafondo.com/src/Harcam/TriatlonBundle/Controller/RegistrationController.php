@@ -45,7 +45,7 @@ class RegistrationController extends Controller
         if ($form->isValid()) {
             // perform some action, such as saving the task to the database
 
-            return $this->redirect($this->generateUrl('task_success'));
+            return $this->redirect($this->generateUrl('harcam_triatlon_signup_success'));
         } else {
             // If invalid, render the same form again..
             return $this->render('HarcamTriatlonBundle:Registration:form.html.twig',
@@ -56,7 +56,7 @@ class RegistrationController extends Controller
 
     public function signupSuccessAction(Request $request)
     {
-
+        return $this->render('HarcamTriatlonBundle:Registration:success.html.twig');
     }
 
 }
