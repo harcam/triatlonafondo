@@ -26,6 +26,9 @@ echo - Prepare log files -
 sudo mkdir /etc/apache2/logs
 sudo chmod 777 -R /etc/apache2/logs
 
+echo - Enable RewriteEngine -
+sudo a2enmod rewrite
+
 echo - Enable Virtual Hosts -
 sudo a2dissite default
 sudo a2dissite 000-default
