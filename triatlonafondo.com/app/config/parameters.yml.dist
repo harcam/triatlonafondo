@@ -2,8 +2,8 @@
 parameters:
     database_driver: pdo_mysql
     database_host: localhost
-    database_port: null
-    database_name: smt
+    database_port: 3306
+    database_name: ~
     database_user: ~
     database_password: ~
     mailer_transport: smtp
@@ -11,4 +11,4 @@ parameters:
     mailer_user: null
     mailer_password: null
     locale: en
-    secret: 98b03f49b1391d04174919d1b1ecda993e1cf9b3
+    secret: ~
