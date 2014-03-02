@@ -10,7 +10,7 @@ use Harcam\TriatlonBundle\Entity\Client;
 
 class RegistrationController extends Controller
 {
-    public function signupAction(Request $request)
+    public function signupDeprectaedAction(Request $request)
     {
         // Initialize Client object to generate a form
         $client = new Client();
@@ -56,7 +56,7 @@ class RegistrationController extends Controller
         );
     }
 
-    public function signupProcessAction(Request $request)
+    public function signupAction(Request $request)
     {
         // Initialize Client object to handle the form
         $client = new Client();
@@ -101,7 +101,48 @@ class RegistrationController extends Controller
 
         // Check that the required fields are filled in
         if ($form->isValid()) {
-            // perform some action, such as saving the task to the database
+
+            // Save the client to the database
+            $doctrine = $this->getDoctrine();
+            $em = $this->getManager();
+
+            $em->persist($client);
+            $em->flush();
+
+            ///// Send an email to the client /////
+            ## COMPOSE MESSAGE
+            $output->writeln( "Building mail body.." );
+            // Build mail body
+            $mailTitle = "Daily Club Report (" . $yesterday->format('d/m/Y') . ")"; // Use Yesterday instead of today.
+            $mailBody = $this->get('templating')->render('HarcamTriatlonBundle:Email:base.html.twig',
+                array('today' => $yesterday, // Yup, weird.
+                    'total' => $total,
+                    'logs' => $logs,
+                    'month' => $month));
+
+            //$output->writeln( "BODY DEBUG \n" . $mailBody );
+
+            // Get To and From
+            $container->getParameter('mailer.transport');
+            $mailFrom = array('soporte@nivamovil.com' => 'Reporteador Lambo');
+            $mailTo[ $user->getEmail() ] = $user->getFullName();
+
+            // Build message object
+            $message = \Swift_Message::newInstance()
+                ->setEncoder(\Swift_Encoding::get8BitEncoding()) // Disable Quoted-Printable headers (they mess up HTML)
+                ->setSubject($mailTitle)
+                ->setFrom($mailFrom)
+                ->setBcc($mailTo)
+                ->setBody($mailBody, 'text/html')
+            ;
+
+            $output->writeln( "Sending mail.." );
+
+            // 'send' the email and store it in the spool
+            $mailer = $this->get('mailer');
+            $mailer->send($message);
+
+            ///// Mail sent /////
 
             return $this->redirect($this->generateUrl('harcam_triatlon_signup_success'));
         } else {
@@ -115,6 +156,11 @@ class RegistrationController extends Controller
     public function signupSuccessAction(Request $request)
     {
         return $this->render('HarcamTriatlonBundle:Registration:success.html.twig');
+    }
+
+    public function paymentAction($token)
+    {
+        // Validate the token
     }
 
 }

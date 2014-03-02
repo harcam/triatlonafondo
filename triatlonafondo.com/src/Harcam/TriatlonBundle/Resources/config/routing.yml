@@ -2,16 +2,18 @@
 harcam_triatlon_signup:
     pattern:    /signup
     defaults:   { _controller: HarcamTriatlonBundle:Registration:signup }
-    methods:    [GET]
-
-harcam_triatlon_signup_process:
-    pattern:    /signup
-    defaults:   { _controller: HarcamTriatlonBundle:Registration:signupProcess }
-    methods:    [POST]
 
 harcam_triatlon_signup_success:
     pattern:    /signup/success
     defaults:   { _controller: HarcamTriatlonBundle:Registration:signupSuccess }
+
+harcam_triatlon_signup_payment:
+    pattern:    /signup/payment/{token}
+    defaults:   { _controller: HarcamTriatlonBundle:Registration:payment }
+
+harcam_triatlon_signup_payment_success:
+    pattern:    /signup/payment/success
+    defaults:   { _controller: HarcamTriatlonBundle:Registration:paymentSuccess }
 
 ## Page Controller
 harcam_triatlon_home:
