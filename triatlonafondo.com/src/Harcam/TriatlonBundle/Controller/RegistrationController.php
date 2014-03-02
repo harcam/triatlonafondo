@@ -18,6 +18,7 @@ class RegistrationController extends Controller
         $form = $this->createFormBuilder($client)
             ->add('name', 'text', array('label' => 'Nombre(s)'))
             ->add('lastName', 'text', array('label' => 'Apellidos'))
+            ->add('email', 'email', array('label' => 'Email'))
             ->add('save', 'submit', array('label' => 'Enviar'))
             ->getForm();
 
@@ -32,9 +33,10 @@ class RegistrationController extends Controller
         $client = new Client();
 
         $form = $this->createFormBuilder($client)
-            ->add('name', 'text')
+            ->add('name', 'text', array('label' => 'Nombre(s)'))
             ->add('lastName', 'text', array('label' => 'Apellidos'))
-            ->add('save', 'submit')
+            ->add('email', 'email', array('label' => 'Email'))
+            ->add('save', 'submit', array('label' => 'Enviar'))
             ->getForm();
 
         $form->handleRequest($request);
