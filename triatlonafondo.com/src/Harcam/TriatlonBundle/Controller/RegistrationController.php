@@ -16,9 +16,9 @@ class RegistrationController extends Controller
         $client = new Client();
 
         $form = $this->createFormBuilder($client)
-            ->add('name', 'text')
-            ->add('lastName', 'text')
-            ->add('save', 'submit')
+            ->add('name', 'text', array('label' => 'Nombre(s)'))
+            ->add('lastName', 'text', array('label' => 'Apellidos'))
+            ->add('save', 'submit', array('label' => 'Enviar'))
             ->getForm();
 
         return $this->render('HarcamTriatlonBundle:Registration:form.html.twig',
