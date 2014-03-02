@@ -79,7 +79,7 @@ class RegistrationController extends Controller
                       'link' => $link));
 
             // Get To and From
-            $sender = $this->container->getParameter('mailer.user');
+            $sender = $this->container->getParameter('mailer_user');
             $mailFrom = array($sender => 'Triatlón Tritanes');
             $mailTo = array($client->getEmail() => $client->getFullName());
 
