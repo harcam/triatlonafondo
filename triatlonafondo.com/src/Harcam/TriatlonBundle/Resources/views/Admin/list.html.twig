@@ -1,0 +1,19 @@
+<table>
+    <thead>
+    <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.getFullName() }}</td>
+                <td>{{ client.email }}</td>
+                <td>Delete</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
