@@ -96,6 +96,15 @@ class Client {
      */
     protected $hasConfirmed = false;
 
+    /**
+     * N: New
+     * C: Confirmed
+     * R: Registered
+     * E: Error
+     * @ORM\Column(type="string", length=2, nullable=true)
+     */
+    protected $status = 'N';
+
 
     #########################
     ## OBJECT RELATIONSHIP ##
@@ -428,5 +437,26 @@ class Client {
     {
         return $this->hasConfirmed;
     }
+
+    /**
+     * @param mixed $status
+     * @return Client
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+
 
 }
