@@ -17,7 +17,7 @@ class RegistrationController extends Controller
 
         $form = $this->createFormBuilder($client)
             ->add('name', 'text')
-            ->add('fullName', 'text')
+            ->add('lastName', 'text')
             ->add('save', 'submit')
             ->getForm();
 
