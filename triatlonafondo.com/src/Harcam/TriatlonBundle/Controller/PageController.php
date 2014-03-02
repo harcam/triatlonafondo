@@ -23,6 +23,16 @@ class PageController extends Controller
             case 'gallery':
                 $layout = 'HarcamTriatlonBundle:Page:gallery.html.twig';
                 break;
+            case 'trainers':
+                $layout ='HarcamTriatlonBundle:Page:trainers.html.twig';
+                break;
+            case 'prices':
+                $layout = 'HarcamTriatlonBundle:Page:prices.html.twig';
+                break;
+            case 'timetable':
+                $layout = 'HarcamTriatlonBundle:Page:timetable.html.twig';
+                break;
+           
             default:
                 $layout = 'HarcamTriatlonBundle:Page:home.html.twig';
                 break;
