@@ -47,7 +47,7 @@ class RegistrationController extends Controller
             ->add('name',       'text',     array('label' => 'Nombre(s)'))
             ->add('lastName',   'text',     array('label' => 'Apellidos'))
             ->add('affiliationNumber', 'text', array('label' => 'Número de Afiliación (FMTRI)'))
-            ->add('equipo',     'text',     array('label' => 'Equipo'))
+            ->add('team',       'text',     array('label' => 'Equipo'))
             ->add('phoneNumber', 'number',  array('label' => 'Teléfono', 'required' => false))
             ->add('email',      'email',    array('label' => 'Email'))
             ->add('save',       'submit',   array('label' => 'Enviar'))
