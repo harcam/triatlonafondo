@@ -31,7 +31,7 @@ class AdminClientController extends Controller
         // Override the ID on the URL?
         $id = $request->request->get('clientId');
         // Query the server for the club's information and parameters
-        $device = $this->getDoctrine()->getRepository('NivaSharedBundle:Device')->find($id);
+        $device = $this->getDoctrine()->getRepository('HarcamTriatlonBundle:Client')->find($id);
 
         if (!$device) {
             throw $this->createNotFoundException(

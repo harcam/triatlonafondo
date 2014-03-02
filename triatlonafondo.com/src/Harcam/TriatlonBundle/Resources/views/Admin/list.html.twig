@@ -9,7 +9,11 @@
     <tbody>
         {% for client in clients %}
             <tr>
-                <td>{{ client.getFullName() }}</td>
+                <td>
+                    <a href="{{ path('harcam_triatlon_admin_client_view', {'id':client.clientId}) }}">
+                        {{ client.getFullName() }}
+                    </a>
+                </td>
                 <td>{{ client.email }}</td>
                 <td>
                     <form action="{{ path('harcam_triatlon_admin_client_delete', {'id':client.clientId}) }}" method="post">
