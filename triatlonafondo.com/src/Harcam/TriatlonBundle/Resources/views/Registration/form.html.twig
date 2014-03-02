@@ -36,6 +36,18 @@
     </div>
 
     <div>
+        {{ form_label(form.affiliationNumber) }}
+        {{ form_errors(form.affiliationNumber) }}
+        {{ form_widget(form.affiliationNumber) }}
+    </div>
+
+    <div>
+        {{ form_label(form.team) }}
+        {{ form_errors(form.team) }}
+        {{ form_widget(form.team) }}
+    </div>
+
+    <div>
         {{ form_label(form.phoneNumber) }}
         {{ form_errors(form.phoneNumber) }}
         {{ form_widget(form.phoneNumber) }}
