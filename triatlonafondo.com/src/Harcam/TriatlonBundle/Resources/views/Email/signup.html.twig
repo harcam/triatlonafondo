@@ -1,8 +1,16 @@
-Aqui están tus datos
+Hola {{ client.name }}!
+
+Recibimos tu solicitud de registro, para continuar
+
+<h3>Tu Información</h3>
+Por favor revisa que tus datos sean correctos
+Nombre(s): {{ client.name }}
+Apellidos: {{ client.lastName }}
+
+<h3>Instrucciones</h3>
+Para continuar con el proceso haz click en el link
+<a href="{{ link }}" target="_blank">{{ link }}</a>
 
 
-El proceso es hacerle click al siguiente link..
-
-
-
-Gracias
+Gracias,
+El equipo Tritanes.

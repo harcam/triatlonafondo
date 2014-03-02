@@ -67,9 +67,29 @@ class Client {
     protected $creationTime;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $token;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     protected $paymentTime;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $paymentAuth;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $paymentFolio;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    protected $hasPayed = false;
 
 
     #########################
@@ -91,18 +111,10 @@ class Client {
         $this->creationTime = new \Datetime("now");
     }
 
-    /**
-     * Check if client has already payed
-     */
-    public function hasPayed()
+    public function getFullName()
     {
-        if($this->paymentTime != null){
-            return true;
-        } else {
-            return false;
-        }
+        return $this->name . " " . $this->lastName;
     }
-
 
     #########################
     ## GETTERs AND SETTERs ##
@@ -315,6 +327,82 @@ class Client {
     public function getTeam()
     {
         return $this->team;
+    }
+
+    /**
+     * @param mixed $hasPayed
+     * @return Client
+     */
+    public function setHasPayed($hasPayed)
+    {
+        $this->hasPayed = $hasPayed;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHasPayed()
+    {
+        return $this->hasPayed;
+    }
+
+    /**
+     * @param mixed $paymentAuth
+     * @return Client
+     */
+    public function setPaymentAuth($paymentAuth)
+    {
+        $this->paymentAuth = $paymentAuth;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPaymentAuth()
+    {
+        return $this->paymentAuth;
+    }
+
+    /**
+     * @param mixed $paymentFolio
+     * @return Client
+     */
+    public function setPaymentFolio($paymentFolio)
+    {
+        $this->paymentFolio = $paymentFolio;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPaymentFolio()
+    {
+        return $this->paymentFolio;
+    }
+
+    /**
+     * @param mixed $token
+     * @return Client
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->token;
     }
 
 }
