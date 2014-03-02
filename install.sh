@@ -55,11 +55,11 @@ echo - Install Symfony -
 php composer.phar install
 
 echo - Clean up installation -
-chmod -R 777 dev.com/app/cache
-chmod -R 777 dev.com/app/logs
-chmod -R 777 dev.com/app/config/parameters.yml
+chmod -R 777 app/cache
+chmod -R 777 app/logs
+chmod -R 777 app/config/parameters.yml
 
 echo - Prepare .htaccess file for dev environment -
-cp vhost/dev_htaccess dev.com/web/.htaccess
+cp ../vhost/dev_htaccess web/.htaccess
 
 echo -e "\e[1mAll done.\e[0m"
