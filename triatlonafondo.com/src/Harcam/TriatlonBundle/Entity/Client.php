@@ -91,6 +91,11 @@ class Client {
      */
     protected $hasPayed = false;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    protected $hasConfirmed = false;
+
 
     #########################
     ## OBJECT RELATIONSHIP ##
@@ -403,6 +408,25 @@ class Client {
     public function getToken()
     {
         return $this->token;
+    }
+
+    /**
+     * @param mixed $hasConfirmed
+     * @return Client
+     */
+    public function setHasConfirmed($hasConfirmed)
+    {
+        $this->hasConfirmed = $hasConfirmed;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHasConfirmed()
+    {
+        return $this->hasConfirmed;
     }
 
 }
