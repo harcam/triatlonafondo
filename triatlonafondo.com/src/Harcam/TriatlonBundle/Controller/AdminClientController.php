@@ -44,6 +44,6 @@ class AdminClientController extends Controller
         $em->remove( $device );
         $em->flush();
 
-        return $this->redirect($this->generateUrl('slambo_device_list'));
+        return $this->redirect($this->generateUrl('harcam_triatlon_admin_client_list'));
     }
 }

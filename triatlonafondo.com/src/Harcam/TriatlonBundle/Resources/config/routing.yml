@@ -1,7 +1,16 @@
 ## Admin Controller
-harcam_triatlon_admin_list:
-    pattern:    /admin/clients
+harcam_triatlon_admin_client_list:
+    pattern:    /admin/client
     defaults:   { _controller: HarcamTriatlonBundle:Admin:viewClients }
+
+harcam_triatlon_admin_client_view:
+    pattern:    /admin/client/{id}
+    defaults:   { _controller: HarcamTriatlonBundle:Admin:view }
+
+harcam_triatlon_admin_client_delete:
+    pattern:    /admin/client/{id}/delete
+    defaults:   { _controller: HarcamTriatlonBundle:Admin:delete }
+    methods:    [POST]
 
 ## Registration Controller
 harcam_triatlon_signup:

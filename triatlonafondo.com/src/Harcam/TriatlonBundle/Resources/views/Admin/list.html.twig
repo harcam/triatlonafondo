@@ -11,7 +11,12 @@
             <tr>
                 <td>{{ client.getFullName() }}</td>
                 <td>{{ client.email }}</td>
-                <td>Delete</td>
+                <td>
+                    <form action="{{ path('harcam_triatlon_admin_client_delete', {'id':client.clientId}) }}" method="post">
+                        <input type="hidden" name="clientId" value="{{ client.clientId }}" />
+                        <input type="submit" name="delete" value="Delete" />
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </tbody>

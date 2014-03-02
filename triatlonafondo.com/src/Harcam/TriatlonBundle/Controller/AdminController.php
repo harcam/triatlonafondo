@@ -40,5 +40,26 @@ class AdminController extends Controller
 
     }
 
+    public function deleteAction(Request $request, $id)
+    {
+        // Override the ID on the URL?
+        $id = $request->request->get('clientId');
+        // Query the server for the club's information and parameters
+        $device = $this->getDoctrine()->getRepository('NivaSharedBundle:Device')->find($id);
+
+        if (!$device) {
+            throw $this->createNotFoundException(
+                'No device found for id ' . $id
+            );
+        }
+
+        // Remove from database
+        $em = $this->getDoctrine()->getManager();
+        $em->remove( $device );
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('slambo_device_list'));
+    }
+
 
 }
