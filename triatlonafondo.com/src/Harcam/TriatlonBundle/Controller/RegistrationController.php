@@ -60,8 +60,7 @@ class RegistrationController extends Controller
             $client->setToken($sToken);
 
             // Save the client to the database
-            $doctrine = $this->getDoctrine();
-            $em = $this->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
 
             $em->persist($client);
             $em->flush();
