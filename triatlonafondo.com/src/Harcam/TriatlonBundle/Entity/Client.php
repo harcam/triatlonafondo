@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="Clients")
+ * @UniqueEntity("email")
  */
 class Client {
     /**
@@ -56,7 +57,7 @@ class Client {
     protected $phoneNumber;
 
     /**
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\Column(type="string", nullable=false, unique=true)
      */
     protected $email;
 
@@ -66,7 +67,7 @@ class Client {
     protected $creationTime;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=true, unique=true)
      */
     protected $token;
 

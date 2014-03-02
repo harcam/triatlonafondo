@@ -8,7 +8,7 @@ harcam_triatlon_signup_success:
     defaults:   { _controller: HarcamTriatlonBundle:Registration:signupSuccess }
 
 harcam_triatlon_signup_payment:
-    pattern:    /signup/payment/{token}
+    pattern:    /signup/payment/{email}/{token}
     defaults:   { _controller: HarcamTriatlonBundle:Registration:payment }
 
 harcam_triatlon_signup_payment_success:

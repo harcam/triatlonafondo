@@ -46,6 +46,8 @@ class RegistrationController extends Controller
             ->add('category',   'choice',   array('label' => 'Categoría', 'choices' => $categories))
             ->add('name',       'text',     array('label' => 'Nombre(s)'))
             ->add('lastName',   'text',     array('label' => 'Apellidos'))
+            ->add('affiliationNumber', 'text', array('label' => 'Número de Afiliación (FMTRI)'))
+            ->add('equipo',     'text',     array('label' => 'Equipo'))
             ->add('phoneNumber', 'number',  array('label' => 'Teléfono', 'required' => false))
             ->add('email',      'email',    array('label' => 'Email'))
             ->add('save',       'submit',   array('label' => 'Enviar'))
@@ -66,8 +68,8 @@ class RegistrationController extends Controller
             $em->flush();
 
             // Prepare the confirmation link
-            $link = $request->getHost() .
-                $this->generateUrl('harcam_triatlon_signup_payment', array('token' => $sToken));
+            $link = $request->getHost() . $this->generateUrl('harcam_triatlon_signup_payment',
+                    array('email' => $client->getEmail(), 'token' => $sToken));
 
             ///// Send an email to the client /////
             // Build mail body
@@ -90,7 +92,7 @@ class RegistrationController extends Controller
                 ->setBody($mailBody, 'text/html')
             ;
 
-            // 'send' the email and store it in the spool
+            // send the email
             $mailer = $this->get('mailer');
             $mailer->send($message);
 
