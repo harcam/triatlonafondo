@@ -32,7 +32,6 @@ class Client {
 
     /**
      * @ORM\Column(type="string", nullable=false)
-     * @Assert\NotBlank()
      */
     protected $name;
 
