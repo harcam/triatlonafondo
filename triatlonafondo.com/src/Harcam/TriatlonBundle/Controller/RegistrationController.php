@@ -46,6 +46,7 @@ class RegistrationController extends Controller
             ->add('category', 'choice', array('label' => 'Categoría', 'choices' => $categories))
             ->add('name', 'text', array('label' => 'Nombre(s)'))
             ->add('lastName', 'text', array('label' => 'Apellidos'))
+            ->add('phoneNumber', 'number', array('label' => 'Teléfono'))
             ->add('email', 'email', array('label' => 'Email'))
             ->add('save', 'submit', array('label' => 'Enviar'))
             ->getForm();
@@ -91,6 +92,7 @@ class RegistrationController extends Controller
             ->add('category', 'choice', array('label' => 'Categoría', 'choices' => $categories))
             ->add('name', 'text', array('label' => 'Nombre(s)'))
             ->add('lastName', 'text', array('label' => 'Apellidos'))
+            ->add('phoneNumber', 'number', array('label' => 'Teléfono'))
             ->add('email', 'email', array('label' => 'Email'))
             ->add('save', 'submit', array('label' => 'Enviar'))
             ->getForm();
