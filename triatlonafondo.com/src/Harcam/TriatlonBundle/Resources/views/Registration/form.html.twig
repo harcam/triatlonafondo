@@ -12,6 +12,18 @@
     {{ form_errors(form) }}
 
     <div>
+        {{ form_label(form.distance) }}
+        {{ form_errors(form.distance) }}
+        {{ form_widget(form.distance) }}
+    </div>
+
+    <div>
+        {{ form_label(form.category) }}
+        {{ form_errors(form.category) }}
+        {{ form_widget(form.category) }}
+    </div>
+
+    <div>
         {{ form_label(form.name) }}
         {{ form_errors(form.name) }}
         {{ form_widget(form.name) }}
