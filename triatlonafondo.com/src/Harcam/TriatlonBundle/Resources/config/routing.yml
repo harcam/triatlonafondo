@@ -1,12 +1,12 @@
 ## Registration Controller
 harcam_triatlon_signup:
     pattern:    /signup
-    defaults:   { _controller: HarcamTriatlonController:Registration:signup }
+    defaults:   { _controller: HarcamTriatlonBundle:Registration:signup }
     methods:    [GET]
 
 harcam_triatlon_signup_process:
     pattern:    /signup
-    defaults:   { _controller: HarcamTriatlonController:Registration:signupProcess }
+    defaults:   { _controller: HarcamTriatlonBundle:Registration:signupProcess }
     methods:    [POST]
 
 ## Page Controller
