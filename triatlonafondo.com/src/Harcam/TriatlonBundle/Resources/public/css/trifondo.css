@@ -147,5 +147,5 @@ input {
 	font-size: 0.5em;
 }
 .trainername{
-	writing-mode: bt-lr; 
+	-webkit-transform:rotate(90deg);
 }
