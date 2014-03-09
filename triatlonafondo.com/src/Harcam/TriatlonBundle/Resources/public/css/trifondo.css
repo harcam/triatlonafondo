@@ -137,15 +137,15 @@ input {
   display: inline-block;
   float: left;
 }
-#rojas{
+#Rojas{
 	font-size:  0.5em;
 }
-#romo{
+#Romo{
 	font-size: 0.5em;
 }
-#lopez{
+#Lopez{
 	font-size: 0.5em;
 }
 .trainername{
-	-webkit-transform:rotate(90deg);
+	-webkit-transform:rotate(270deg);
 }
