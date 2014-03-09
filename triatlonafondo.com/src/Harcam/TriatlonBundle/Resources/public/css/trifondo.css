@@ -138,13 +138,13 @@ input {
   float: left;
 }
 #Rojas{
-	font-size:  0.5em;
+	font-size:  0.75em;
 }
 #Romo{
-	font-size: 0.5em;
+	font-size: 0.75em;
 }
 #Lopez{
-	font-size: 0.5em;
+	font-size: 0.75em;
 }
 .trainername{
 	-webkit-transform:rotate(270deg);
