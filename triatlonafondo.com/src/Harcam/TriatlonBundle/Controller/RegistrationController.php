@@ -73,7 +73,7 @@ class RegistrationController extends Controller
 
             ///// Send an email to the client /////
             // Build mail body
-            $mailTitle = "Inscripción Triatlón Triatanes";
+            $mailTitle = "Inscripción Triatlón Tritanes";
             $mailBody = $this->get('templating')->render('HarcamTriatlonBundle:Email:signup.html.twig',
                 array('client' => $client,
                       'link' => $link));
