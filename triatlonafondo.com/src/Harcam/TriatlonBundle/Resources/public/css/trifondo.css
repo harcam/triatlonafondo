@@ -137,8 +137,11 @@ input {
   display: inline-block;
   float: left;
 }
+
+.deporte{
+}
 .trainername{
-	-webkit-transform:rotate(270deg);
+	
 }
 .logros{
 	font-size: 0.5em;
