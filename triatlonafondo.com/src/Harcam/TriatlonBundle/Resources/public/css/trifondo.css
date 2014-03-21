@@ -137,15 +137,14 @@ input {
   display: inline-block;
   float: left;
 }
-#Rojas{
-	font-size:  0.75em;
-}
-#Romo{
-	font-size: 0.75em;
-}
-#Lopez{
-	font-size: 0.75em;
-}
 .trainername{
 	-webkit-transform:rotate(270deg);
+}
+.logros{
+	font-size: 0.5em;
+	color: #000099
+}
+.capacitacion{
+	font-size: 0.5em;
+	color: #009933
 }
