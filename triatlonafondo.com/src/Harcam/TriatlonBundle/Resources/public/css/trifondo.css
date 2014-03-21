@@ -141,7 +141,7 @@ input {
 .deporte{
 	color: #009933;
 	font-size: 2em;
-	text-align: right;
+	text-align: center;
 }
 .trainername{
 	
@@ -155,5 +155,5 @@ input {
 	color: #009933
 }
 .ttitle{
-	font-size:1em;
+	font-size: 1.2em;
 }
