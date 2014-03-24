@@ -150,11 +150,13 @@ input {
 	font-size: 0.7em;
 	color: #000099;
 	float:left;
+	width:350px;
 }
 .capacitacion{
 	font-size: 0.7em;
 	color: #009933;
 	float:right;
+	width:350px;
 }
 .ttitle{
 	font-size: 1.2em;
