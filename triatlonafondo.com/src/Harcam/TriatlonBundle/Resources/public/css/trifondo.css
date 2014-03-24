@@ -148,11 +148,13 @@ input {
 }
 .logros{
 	font-size: 0.7em;
-	color: #000099
+	color: #000099;
+	float:left;
 }
 .capacitacion{
 	font-size: 0.7em;
-	color: #009933
+	color: #009933;
+	float:right;
 }
 .ttitle{
 	font-size: 1.2em;
