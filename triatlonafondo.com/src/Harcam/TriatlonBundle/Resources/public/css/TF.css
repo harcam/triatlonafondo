@@ -41,7 +41,7 @@ a:hover, a:active, a:focus {
 
 }
 .container {
-	width: 1050px;
+	width: 1000px;
 	background-color: #FFF;
 	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
 }
@@ -53,7 +53,7 @@ a:hover, a:active, a:focus {
 }
 .sidebar{
 	float: left;
-	width: 200px;
+	width: 180px;
 	padding-bottom: 10px;
 	padding-top:10px;
 	padding-left:10px;
@@ -63,8 +63,9 @@ a:hover, a:active, a:focus {
 	float: right;
 	width: 780px;
 	margin-top: 10px;
-	margin-right:50px;
+	margin-right:10px;
 	margin-left:10px;
+	margin-bottom:10px;
 	background-color: #FFFFFF;
 }
 .footer{
