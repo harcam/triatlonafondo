@@ -41,7 +41,7 @@ a:hover, a:active, a:focus {
 
 }
 .container {
-	width: 1000px;
+	width: 1020px;
 	background-color: #FFF;
 	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
 }
