@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Railway';
-    src: url('{{ asset('bundles/harcamtriatlon/fonts/Raleway-Light.otf') }}') format('opentype');
+    src: url("{{asset('bundles/harcamtriatlon/fonts/Raleway-Light.otf')}}") format('opentype');
     font-weight: normal;
     font-style: normal;
 }
