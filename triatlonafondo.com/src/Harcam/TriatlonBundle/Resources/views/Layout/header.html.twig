@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Triatlon a Fondo</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/harcamtriatlon/css/trifondo.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/harcamtriatlon/css/TF.css') }}"/>
 </head>
 <body>
 
@@ -13,9 +13,16 @@
 
 <!-- start .header -->
 <div class="header">
-    <a href="#"><img
-                src="{{ asset('bundles/harcamtriatlon/img/triatlonafondo.png') }}"
-                alt="Insert Logo Here" name="Insert_logo" width="337" height="60" id="Insert_logo"
-                style="background-color: #003366; display: block;"/></a>
+
+    <div class="Navbar">
+       <nav class="menu">
+            <a href="{{ path('harcam_triatlon_home') }}"><img src="{{ asset('bundles/harcamtriatlon/img/TFLogoONBLACK.png') }}" height="50px" id="logo"/></a>
+            <a href="{{ path('harcam_triatlon_page', {'page':'trainers'}) }}">Entrenadores</a>
+            <a href="{{ path('harcam_triatlon_page', {'page':'timetable'}) }}">Horarios</a>
+            <a href="{{ path('harcam_triatlon_page', {'page':'prices'}) }}">Costos</a>
+            <a href="{{ path('harcam_triatlon_page', {'page':'gallery'}) }}">Galeria</a>
+            <a href="{{ path('harcam_triatlon_page', {'page':'contact'}) }}">Contacto</a>
+       </nav> 
+    </div>
 </div>
 <!-- end .header -->

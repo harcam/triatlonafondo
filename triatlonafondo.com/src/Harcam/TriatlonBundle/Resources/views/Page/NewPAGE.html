@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Triatlon a Fondo</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/harcamtriatlon/css/TF.css') }}"/>
+</head>
+<body>
+
+<!-- start .container -->
+<div class="container">
+
+<!-- start .header -->
+<div class="header">
+    <a href="#"><img
+                src="{{ asset('bundles/harcamtriatlon/img/TFLogoONBLACK.png') }}"
+                alt="Insert Logo Here" name="Insert_logo" width="337" height="60" id="Insert_logo"
+                style="background-color: #003366; display: block;"/></a>
+    
+    <div clss="Navbar">
+       <nav class="menu">
+        <ul>
+            <li><a href="#"></a>Entrenadores</li>
+            <li><a href="#">Horarios</a></li>
+            <li><a href="#">Costos</a></li>
+            <li><a href="#">Galería</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+       </nav> 
+    </div>
+</div>
+<!-- end .header -->
+
+
+<!-- start .sidebar -->
+<div class="sidebar1">
+    <ul class="nav">
+        <li><a href="{{ path('harcam_triatlon_home') }}">Inicio</a></li>
+        <li><a href="{{ path('harcam_triatlon_page', {'page':'trainers'}) }}">Entrenadores</a></li>
+        <li><a href="{{ path('harcam_triatlon_page', {'page':'timetable'}) }}">Horarios</a></li>
+        {# <li><a href="{{ path('harcam_triatlon_signup') }}">Triatlón Tritanes</a></li> #}
+        <li><a href="{{ path('harcam_triatlon_page', {'page':'prices'}) }}">Costos</a></li>
+        <li><a href="{{ path('harcam_triatlon_page', {'page':'gallery'}) }}">Galería</a></li>
+        <li><a href="{{ path('harcam_triatlon_page', {'page':'contact'}) }}">Contacto</a></li>
+    </ul>
+    <div><a href="https://www.facebook.com/Tritanes?fref=ts" target="_blank">
+            <img src="{{ asset('bundles/harcamtriatlon/img/facebooklogo.png') }}" width=60px height=60px/></a>
+        <a href="https://twitter.com/tritanestec" target="_blank">
+            <img src="{{ asset('bundles/harcamtriatlon/img/twitterlogo.png') }}" width=60px height=60px/></a>
+    </div>
+    <div id="tritanes">
+        <img src="{{ asset('bundles/harcamtriatlon/img/LOGOTRITANES-2014.jpg') }}" />
+    </div>
+    <div id="triatlon">
+        <img src="{{ asset('bundles/harcamtriatlon/img/TT_AZUL.jpg') }}" />
+    </div>
+</div>
+<!-- end .sidebar -->
+
+
+<!-- start .content -->
+<div class="content">
+
+    <div>
+        <h1>Bienvenido a Triatlón a Fondo</h1>
+    </div>
+
+    <div>
+        <a href="{{ asset('bundles/harcamtriatlon/img/Convocatoria.pdf') }}"><img src="{{ asset('bundles/harcamtriatlon/img/BannerConvocatoria.jpg') }}"></img></a>
+    </div>
+<div>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/U0WnBLS1Ftk" frameborder="0" allowfullscreen></iframe>
+</div>
+    <div>
+        <img src="{{ asset('bundles/harcamtriatlon/img/BannerTriatlon.jpg') }}"></img>
+    </div>
+</div>
+<!-- end .content -->
+
+
+
+
+
+<div class="footer">
+    <p>Todos los contenidos de ésta pagina son propiedad de Triatlón a Fondo y del Equipo Tritanes Tec de Monterrey.</p>
+
+    <p>Ave. Eugenio Garza Sada 2501 Sur Col. Tecnológico C.P. 64849 | Monterrey, Nuevo León, México | Tel. +52 (81)
+        1908-7940</p>
+</div>
+<!-- end .footer -->
+
+</div>
+<!-- end .container -->
+</body>
+</html>

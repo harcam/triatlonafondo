@@ -1,24 +1,18 @@
 <!-- start .sidebar -->
-<div class="sidebar1">
-    <ul class="nav">
-        <li><a href="{{ path('harcam_triatlon_home') }}">Inicio</a></li>
-        <li><a href="{{ path('harcam_triatlon_page', {'page':'trainers'}) }}">Entrenadores</a></li>
-        <li><a href="{{ path('harcam_triatlon_page', {'page':'timetable'}) }}">Horarios</a></li>
-        {# <li><a href="{{ path('harcam_triatlon_signup') }}">Triatlón Tritanes</a></li> #}
-        <li><a href="{{ path('harcam_triatlon_page', {'page':'prices'}) }}">Costos</a></li>
-        <li><a href="{{ path('harcam_triatlon_page', {'page':'gallery'}) }}">Galería</a></li>
-        <li><a href="{{ path('harcam_triatlon_page', {'page':'contact'}) }}">Contacto</a></li>
-    </ul>
-    <div><a href="https://www.facebook.com/Tritanes?fref=ts" target="_blank">
-            <img src="{{ asset('bundles/harcamtriatlon/img/facebooklogo.png') }}" width=60px height=60px/></a>
-        <a href="https://twitter.com/tritanestec" target="_blank">
-            <img src="{{ asset('bundles/harcamtriatlon/img/twitterlogo.png') }}" width=60px height=60px/></a>
-    </div>
-    <div id="tritanes">
-        <img src="{{ asset('bundles/harcamtriatlon/img/LOGOTRITANES-2014.jpg') }}" />
-    </div>
-    <div id="triatlon">
-        <img src="{{ asset('bundles/harcamtriatlon/img/TT_AZUL.jpg') }}" />
-    </div>
+
+<div class="sidebar">
+    <div id="tritan"><a href=""><img src="TritanesLogoPage.jpg"/></a></div>
+    <div id="registro"><a href="">Registro Triatlón Tritanes</a></div>
+    <div id="triatlonlogo"><a href=""><img src="TT_BLANCO.jpg" width="200px"/></a></div>
+    <div id="facebook"><a href="https://www.facebook.com/Tritanes?fref=ts" target="_blank">facebook</a></div>
+    <div id="twitter"><a href="https://twitter.com/tritanestec" target="_blank">twitter</a></div>
+    <div id="patrocinadores">Nuestros patrocinadores</div>
+    <div id="therak"><a href="http://www.therak.com.mx" target="_blank"><img src="therak.jpg"/></a></div>
+    <div id="intensity"><a href="https://www.facebook.com/IntensityNDA?fref=ts" target="_blank"><img src="intensity.jpg"/></a></div>
+    <div id="trifoto"><a href="http://www.trifoto.mx/" target="_blank"><img src="trifoto.jpg" /></a></div>
+    
 </div>
 <!-- end .sidebar -->
+
+
+{# {{ path('harcam_triatlon_signup') }} #}

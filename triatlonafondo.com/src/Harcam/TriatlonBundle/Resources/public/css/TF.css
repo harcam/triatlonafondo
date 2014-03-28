@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'Railway';
+    src: url('{{ asset('bundles/harcamtriatlon/fonts/Raleway-Light.otf') }}') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font: 100%/1.4 Railway, Helvetica Neue, Helvetica,bHelvetica, sans-serif;
+	background-color: #EDEEF1;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+a:link{
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	color: #ECF1F6;
+}
+a:visited {
+	text-decoration: none;
+	color: #ECF1F6;
+}
+a:hover, a:active, a:focus { 
+	text-decoration: none;
+	color: #FF9933;
+}
+#logo:hover{
+	border: 2px solid #FF9933;
+}
+
+.menu{
+	color:#ECF1F6;
+	font-size:2em;
+	text-align: center;
+	vertical-align: middle;
+	height:100px;
+	display: block;
+}
+
+}
+.container {
+	width: 960px;
+	background-color: #FFF;
+	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+}
+.header {
+	background-color: #0E0E0E;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 60px;
+}
+.sidebar{
+	float: left;
+	width: 200px;
+	padding-bottom: 10px;
+	padding-top:10px;
+	padding-left:10px;
+	padding-right:10px;
+}
+.content{
+	float: right;
+	width: 800px;
+	margin-top: 10px;
+	margin-right:50px;
+	margin-left:10px;
+	background-color: #FFFFFF;
+}
+.footer{
+	background-color: #0E0E0E;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 60px;
+	color:#ECF1F6;
+	clear:both;
+	font-size: 0.70em;
+	text-align: center;
+}
+#registro{
+	background-color: #FF9933;
+	font-size:1.2em;
+	height:60px;
+	text-align: center;
+	vertical-align: middle;
+	margin-bottom: 10px;
+}
+#facebook{
+	background-color: #1A2E56;
+	font-size:1.2em;
+	height:30px;
+	text-align: center;
+	vertical-align: middle;
+	margin-bottom: 10px;
+}
+#twitter{
+	background-color: #33CCFF;
+	font-size:1.2em;
+	height:30px;
+	text-align: center;
+	vertical-align: middle;
+	margin-bottom: 10px;
+}
+#patrocinadores{
+	background-color: #FF9933;
+	font-size:1.2em;
+	height:60px;
+	text-align: center;
+	vertical-align: middle;
+	margin-bottom: 10px;
+	color: #ECF1F6;
+}
+#therak,#triatlonlogo,#intensity{
+	margin-bottom:10px;
+}
+#tritan{
+	margin-bottom: 10px;
+}
