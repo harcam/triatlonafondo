@@ -79,6 +79,30 @@ class Client {
      * @ORM\Column(type="string", length=2, nullable=true)
      */
     protected $status = 'N';
+    
+    public static $categories = array(
+        'IF' => 'Femenil 14 a 15 a–os',
+        'JF' => 'Femenil 16 a 19 a–os',
+        'R' => 'Femenil 20 a 24 a–os',
+        'O' => 'Femenil 25 a 29 a–os',
+        'P' => 'Femenil 30 a 34 a–os',
+        'Q' => 'Femenil 35 a 39 a–os',
+        'R' => 'Femenil 40 a 44 a–os',
+        'S' => 'Femenil 45 a 49 a–os',
+        'T' => 'Femenil 50 a 54 a–os',
+        'V' => 'Femenil 55 a 59 a–os',
+        'IC' => 'Varonil 14 a 15 a–os',
+        'JV' => 'Varonil 16 a 19 a–os',
+        'A' => 'Varonil 20 a 24 a–os',
+        'B' => 'Varonil 25 a 29 a–os',
+        'C' => 'Varonil 30 a 34 a–os',
+        'D' => 'Varonil 35 a 39 a–os',
+        'E' => 'Varonil 40 a 44 a–os',
+        'F' => 'Varonil 45 a 49 a–os',
+        'G' => 'Varonil 50 a 54 a–os',
+        'H' => 'Varonil 55 a 59 a–os',
+        'I' => 'Varonil 60 a–os y mayores',
+    );
 
 
     #########################
@@ -105,17 +129,11 @@ class Client {
 
     public function getCategoryName()
     {
-        switch($this->category)
+        if(array_key_exists($this->category, self::categories))
         {
-            case 'F':
-                $c = 'Femenil...';
-                break;
-            case 'I':
-                $c = 'Femenil2...';
-                break;
-            default:
-                $c = 'Error en el sistema!';
-                break;
+            $c = self::categories[$c];
+        } else {
+            $c = 'Error en el sistema';
         }
 
         return $c;
