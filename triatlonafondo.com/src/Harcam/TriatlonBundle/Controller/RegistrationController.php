@@ -49,6 +49,17 @@ class RegistrationController extends Controller
 
         // Check for errors
         $error = false;
+        if(empty($data['name'])) {
+            $error = 1;
+        } elseif(empty($data['lastName'])) {
+            $error = 2;
+        } elseif(empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            $error = 3;
+        } elseif(empty($data['category'])) {
+            $error = 4;
+        } elseif(!$this->validateSwimTime($data['swimTime'])) {
+            $error = 5;
+        }
 
         if($error)
         {
@@ -57,7 +68,7 @@ class RegistrationController extends Controller
         }
 
         // Form is ok.  Check if the email is unique.
-        $client = $doctrine->getRepository('HarcarmTriatlonBundle:Client')
+        $client = $doctrine->getRepository('HarcarmTriatlon:Client')
             ->findOneBy( array('email' => $data['email']) );
 
         if($client)
@@ -119,6 +130,26 @@ class RegistrationController extends Controller
     public function verificationProcessAction(Request $request)
     {
         
+    }
+
+    private function validateSwimTime($time)
+    {
+        $timeArray = explode(':', $time);
+
+        if(count($timeArray) != 2) return false;
+
+        if(!is_integer($timeArray[0]) || !is_integer($timeArray[1])) return false;
+
+        if(intval($timeArray[1]) >= 60) return false;
+
+        return true;
+    }
+
+    private function swimTimeToSeconds($time)
+    {
+        $timeArray = explode(':', $time);
+
+        return (intval($timeArray[0]) * 60) + intval($timeArray[1]);
     }
 
 }

@@ -10,8 +10,15 @@
 
     {% if error is defined %}
         {% if error == 1 %}
-        <p class="error">Algunos datos requeridos no fueron llenados, favor de llenar los campos resaltados.</p>
+        <p style="color:red !important;">Favor de introducir tu nombre.</p>
         {% elseif error == 2 %}
+        <p style="color:red !important;">Favor de introducir tu apellido.</p>
+        {% elseif error == 3 %}
+        <p style="color:red !important;">Favor de introducir un correo válido.</p>
+        {% elseif error == 4 %}
+        <p style="color:red !important;">Favor de seleccionar una categoría.</p>
+        {% elseif error == 5 %}
+        <p style="color:red !important;">Favor de introducir un tiempo de nado válido.</p>
         {% endif %}
     {% endif %}
 
