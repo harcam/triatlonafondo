@@ -32,12 +32,8 @@
             <div class="pure-control-group">
                 <label for="name"><strong>Nombre*</strong></label>
                 {% if mode == 'edit' %}
-                    <input id="name" type="text"
-                    {% if data is defined %}
-                    placeholder={{ data.name }}
-                    {% else %}
-                    placeholder="Nombre"
-                    {% endif %}
+                    <input id="name" type="text" placeholder="Nombre"
+                        {% if data is defined %} value="{{ data.name }}" {% endif %}
                     >
                 {% else %}
                     <p>{{ client.name }}</p>
