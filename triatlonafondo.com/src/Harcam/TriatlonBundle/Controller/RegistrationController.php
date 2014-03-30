@@ -18,8 +18,7 @@ class RegistrationController extends Controller
      */
     public function signupAction(Request $request)
     {
-        return $this->render('HarcamTriatlonBundle:Registration:form.html.twig',
-            array('mode' => 'edit'));
+        return $this->render('HarcamTriatlonBundle:Registration:form.html.twig');
     }
 
     /**
@@ -64,7 +63,7 @@ class RegistrationController extends Controller
         if($error)
         {
             return $this->render('HarcamTriatlonBundle:Registration:form.html.twig',
-                array('data' => $data, 'error' => $error, 'mode' => 'edit'));
+                array('data' => $data, 'error' => $error));
         }
 
         // Form is ok.  Check if the email is unique.
@@ -98,8 +97,8 @@ class RegistrationController extends Controller
 
 
         // Render as successful
-        return $this->render('HarcamTriatlonBundle:Registration:form.html.twig',
-            array('client' => $client, 'mode' => 'view'));
+        return $this->render('HarcamTriatlonBundle:Registration:confirm.html.twig',
+            array('client' => $client);
 
     }
 
