@@ -75,14 +75,23 @@ class RegistrationController extends Controller
         {
             // Error: client already exists
             // Throw a new page explaining the issue and instruct to contact the admin
+            $msg = "El email introducido ya ha sido registrado en el sistema anteriormente.
+                    Si necesitas editar tus datos o consultar el status de tu registro, favor
+                    de escribir a <a href='mailto:tritanes@gmail.com'>tritanes@gmail.com</a>";
 
-            // TODO
+            return $this->render('HarcamTriatlonBundle:Registration:error.html.twig',
+                array('msg' => $msg));
         }
-
 
         // Email ok. Create a new client
         $client = new Client();
-
+        $client->setName($data['name']);
+        $client->setLastName($data['lastName']);
+        $client->setEmail($data['email']);
+        $client->setCategory($data['category']);
+        $client->setTeam($data['team']);
+        $client->setSwimTime( $this->swimTimeToSeconds($data['swimTime']) );
+        $client->setPhoneNumber($data['phoneNumber']);
 
         // Save to the database
 

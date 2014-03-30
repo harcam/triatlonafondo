@@ -7,8 +7,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-use Harcam\TriatlonBundle\Entity\PayPalLog;
-
 /**
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
@@ -86,49 +84,6 @@ class Client {
     #########################
     ## OBJECT RELATIONSHIP ##
     #########################
-
-    /**
-     * @ORM\OneToMany(targetEntity="PayPalLog", mappedBy="clientId")
-     */
-    protected $payPalLogs;
-
-    public function __construct()
-    {
-        $this->payPalLogs = new ArrayCollection();
-    }
-
-    /**
-     * Add payPalLogs
-     *
-     * @param PayPalLog $payPalLogs
-     * @return Client
-     */
-    public function addPayPalLogs(PayPalLog $payPalLogs)
-    {
-        $this->payPalLogs[] = $payPalLogs;
-
-        return $this;
-    }
-
-    /**
-     * Remove payPalLogs
-     *
-     * @param PayPalLog $payPalLogs
-     */
-    public function removePayPalLogs(PayPalLog $payPalLogs)
-    {
-        $this->payPalLogs->removeElement($payPalLogs);
-    }
-
-    /**
-     * Get payPalLogs
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPayPalLogs()
-    {
-        return $this->payPalLogs;
-    }
 
 
     #########################
@@ -246,6 +201,25 @@ class Client {
     public function getLastName()
     {
         return $this->lastName;
+    }
+
+    /**
+     * @param mixed $swimTime
+     * @return Client
+     */
+    public function setSwimTime($swimTime)
+    {
+        $this->swimTime = $swimTime;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSwimTime()
+    {
+        return $this->swimTime;
     }
 
     /**
