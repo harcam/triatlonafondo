@@ -49,13 +49,13 @@ class RegistrationController extends Controller
 
         // Check for errors
         $error = false;
-        if(empty($data['name'])) {
+        if($data['name'] == "") {
             $error = 1;
-        } elseif(empty($data['lastName'])) {
+        } elseif($data['lastName'] == "") {
             $error = 2;
-        } elseif(empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+        } elseif($data['email'] == "" || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $error = 3;
-        } elseif(empty($data['category'])) {
+        } elseif($data['category'] == "") {
             $error = 4;
         } elseif(!$this->validateSwimTime($data['swimTime'])) {
             $error = 5;
