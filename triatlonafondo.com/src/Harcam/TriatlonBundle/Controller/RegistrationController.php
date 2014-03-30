@@ -116,7 +116,7 @@ class RegistrationController extends Controller
 
     private function validateSwimTime($time)
     {
-        $timeArray = explode(':', $time);
+        $timeArray = explode(':', trim($time));
 
         if(count($timeArray) != 2) return false;
 
