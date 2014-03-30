@@ -67,6 +67,7 @@ a:hover, a:active, a:focus {
 	margin-left:5px;
 	margin-bottom:10px;
 	background-color: #FFFFFF;
+	overflow: scroll;
 }
 .footer{
 	background-color: #0E0E0E;
