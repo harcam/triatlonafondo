@@ -15,10 +15,6 @@ class RegistrationController extends Controller
         // Initialize Client object to handle the form
         $client = new Client();
 
-        $distances = array(
-            'SS' => 'Super Sprint'
-        );
-
         $categories = array(
             'JF' => 'Femenil 16 a 19 años',
             'N' => 'Femenil 20 a 24 años',
@@ -42,7 +38,6 @@ class RegistrationController extends Controller
         );
 
         $form = $this->createFormBuilder($client)
-            ->add('distance',   'choice',   array('label' => 'Distancia', 'choices' => $distances))
             ->add('category',   'choice',   array('label' => 'Categoría', 'choices' => $categories))
             ->add('name',       'text',     array('label' => 'Nombre(s)'))
             ->add('lastName',   'text',     array('label' => 'Apellidos'))
@@ -115,6 +110,71 @@ class RegistrationController extends Controller
     public function paymentAction($token)
     {
         // Validate the token
+    }
+
+    /**
+     * Display the signup form
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function signupAction(Request $request)
+    {
+        // Load the static page for signup
+    }
+
+    /**
+     * Process the signup request
+     *
+     * First check if the email exists in the database, ask
+     * for the password before continuing.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function signupProcessAction(Request $request)
+    {
+
+    }
+
+    /**
+     * Ask for a password in case the client already exists
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function clientVerificationAction(Request $request)
+    {
+
+    }
+
+    /**
+     * Process the cient verification password
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function clientVerificationProcessAction(Request $request)
+    {
+
+    }
+
+    /**
+     * Display a verification page and the PayPal checkout button
+     *
+     * Using PayPal's SetExpressCheckout generate the token and
+     * prepare the link
+     *
+     * @param Request $request
+     */
+    public function verificationAction(Request $request)
+    {
+
+    }
+
+    public function verificationProcessAction(Request $request)
+    {
+        
     }
 
 }

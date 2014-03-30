@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
+use Harcam\TriatlonBundle\Entity\PayPalLog;
+
 /**
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks()
@@ -29,22 +31,12 @@ class Client {
     /**
      * @ORM\Column(type="string", nullable=false)
      */
-    protected $distance;
-
-    /**
-     * @ORM\Column(type="string", nullable=false)
-     */
     protected $name;
 
     /**
      * @ORM\Column(type="string", nullable=false)
      */
     protected $lastName;
-
-    /**
-     * @ORM\Column(type="string", nullable=false)
-     */
-    protected $affiliationNumber;
 
     /**
      * @ORM\Column(type="string", nullable=false)
@@ -62,29 +54,14 @@ class Client {
     protected $email;
 
     /**
+     * @ORM\Column(type="integer", nullable=false)
+     */
+    protected $time100;
+
+    /**
      * @ORM\Column(type="datetime", nullable=false)
      */
     protected $creationTime;
-
-    /**
-     * @ORM\Column(type="string", nullable=true, unique=true)
-     */
-    protected $token;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    protected $paymentTime;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    protected $paymentAuth;
-
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    protected $paymentFolio;
 
     /**
      * @ORM\Column(type="boolean", nullable=false)
@@ -110,7 +87,48 @@ class Client {
     ## OBJECT RELATIONSHIP ##
     #########################
 
-    // None
+    /**
+     * @ORM\OneToMany(targetEntity="PayPalLog", mappedBy="clientId")
+     */
+    protected $payPalLogs;
+
+    public function __construct()
+    {
+        $this->payPalLogs = new ArrayCollection();
+    }
+
+    /**
+     * Add payPalLogs
+     *
+     * @param PayPalLog $payPalLogs
+     * @return Client
+     */
+    public function addPayPalLogs(PayPalLog $payPalLogs)
+    {
+        $this->payPalLogs[] = $payPalLogs;
+
+        return $this;
+    }
+
+    /**
+     * Remove payPalLogs
+     *
+     * @param PayPalLog $payPalLogs
+     */
+    public function removePayPalLogs(PayPalLog $payPalLogs)
+    {
+        $this->payPalLogs->removeElement($payPalLogs);
+    }
+
+    /**
+     * Get payPalLogs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPayPalLogs()
+    {
+        return $this->payPalLogs;
+    }
 
 
     #########################
@@ -130,28 +148,10 @@ class Client {
         return $this->name . " " . $this->lastName;
     }
 
+
     #########################
     ## GETTERs AND SETTERs ##
     #########################
-
-    /**
-     * @param mixed $affiliationNumber
-     * @return Client
-     */
-    public function setAffiliationNumber($affiliationNumber)
-    {
-        $this->affiliationNumber = $affiliationNumber;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAffiliationNumber()
-    {
-        return $this->affiliationNumber;
-    }
 
     /**
      * @param mixed $category
@@ -208,25 +208,6 @@ class Client {
     public function getCreationTime()
     {
         return $this->creationTime;
-    }
-
-    /**
-     * @param mixed $distance
-     * @return Client
-     */
-    public function setDistance($distance)
-    {
-        $this->distance = $distance;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDistance()
-    {
-        return $this->distance;
     }
 
     /**
@@ -287,25 +268,6 @@ class Client {
     }
 
     /**
-     * @param mixed $paymentTime
-     * @return Client
-     */
-    public function setPaymentTime($paymentTime)
-    {
-        $this->paymentTime = $paymentTime;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPaymentTime()
-    {
-        return $this->paymentTime;
-    }
-
-    /**
      * @param mixed $phoneNumber
      * @return Client
      */
@@ -360,63 +322,6 @@ class Client {
     public function getHasPayed()
     {
         return $this->hasPayed;
-    }
-
-    /**
-     * @param mixed $paymentAuth
-     * @return Client
-     */
-    public function setPaymentAuth($paymentAuth)
-    {
-        $this->paymentAuth = $paymentAuth;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPaymentAuth()
-    {
-        return $this->paymentAuth;
-    }
-
-    /**
-     * @param mixed $paymentFolio
-     * @return Client
-     */
-    public function setPaymentFolio($paymentFolio)
-    {
-        $this->paymentFolio = $paymentFolio;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPaymentFolio()
-    {
-        return $this->paymentFolio;
-    }
-
-    /**
-     * @param mixed $token
-     * @return Client
-     */
-    public function setToken($token)
-    {
-        $this->token = $token;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getToken()
-    {
-        return $this->token;
     }
 
     /**
