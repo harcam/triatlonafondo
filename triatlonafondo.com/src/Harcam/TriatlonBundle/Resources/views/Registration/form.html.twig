@@ -24,7 +24,17 @@
         <fieldset>
             <div class="pure-control-group">
                 <label for="name"><strong>Nombre*</strong></label>
-                <input id="name" type="text" placeholder="Nombre">
+                {% if mode == 'edit' %}
+                    <input id="name" type="text"
+                    {% if data is defined %}
+                    placeholder={{ data.name }}
+                    {% else %}
+                    placeholder="Nombre"
+                    {% endif %}
+                    />
+                {% else %}
+                    <p>{{ client.name }}</p>
+                {% endif %}
             </div>
 
             <div class="pure-control-group">
@@ -40,6 +50,7 @@
             <div class="pure-control-group">
                 <label for="category"><strong>Categoría*</strong></label>
                 <select id="category">
+                    <option value="">- Selecciona una categoría -</option>
                     <option value="IF">Femenil 14 a 15 años</option>
                     <option value="JF">Femenil 16 a 19 años</option>
                     <option value="R">Femenil 20 a 24 años</option>

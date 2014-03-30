@@ -38,8 +38,17 @@ class RegistrationController extends Controller
         $em = $doctrine->getManager();
 
         // Load Data from the form
+        $data = array();
+        $data['name'] = $request->request->get('name');
+        $data['lastName'] = $request->request->get('lastName');
+        $data['email'] = $request->request->get('email');
+        $data['category'] = $request->request->get('category');
+        $data['team'] = $request->request->get('team');
+        $data['swimTime'] = $request->request->get('swimTime');
+        $data['phoneNumber'] = $request->request->get('phoneNumber');
 
         // Check for errors
+        $error = false;
 
         if($error)
         {
