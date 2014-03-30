@@ -5,7 +5,7 @@
 <div class="content">
 
     <div>
-        <h1>Registro</h1>
+        <h1>Bienvenido al registro del Triatlón Tritanes</h1>
     </div>
 
     {% if error is defined %}
@@ -14,30 +14,31 @@
         {% elseif error == 2 %}
         {% endif %}
     {% endif %}
-    <p>Bienvenido al registro del Triatlón Tritanes, los campos en negritas son obligatorios. Al terminar presiona el
-        botón "Inscribir".</p>
+
+    <p>Por favor ingresa tus datos y al terminar presiona el botón "Inscribir".</p>
+    <p><small>Nota: Los campos (*) son obligatorios.</small></p>
 
     <form id="form" class="pure-form pure-form-aligned"
           action="{{ path('harcam_triatlon_signup_process') }}" method="post">
 
         <fieldset>
             <div class="pure-control-group">
-                <label for="name"><strong>Nombre</strong></label>
+                <label for="name"><strong>Nombre*</strong></label>
                 <input id="name" type="text" placeholder="Nombre">
             </div>
 
             <div class="pure-control-group">
-                <label for="lastName"><strong>Apellidos</strong></label>
+                <label for="lastName"><strong>Apellidos*</strong></label>
                 <input id="lastName" type="text" placeholder="Apellidos">
             </div>
 
             <div class="pure-control-group">
-                <label for="email"><strong>Email</strong></label>
+                <label for="email"><strong>Email*</strong></label>
                 <input id="email" type="email" placeholder="usuario@ejemplo.com">
             </div>
 
             <div class="pure-control-group">
-                <label for="category"><strong>Categoría:</strong></label>
+                <label for="category"><strong>Categoría*</strong></label>
                 <select id="category">
                     <option value="IF">Femenil 14 a 15 años</option>
                     <option value="JF">Femenil 16 a 19 años</option>
