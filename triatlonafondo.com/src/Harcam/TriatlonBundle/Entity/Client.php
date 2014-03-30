@@ -81,27 +81,27 @@ class Client {
     protected $status = 'N';
     
     public static $categories = array(
-        'IF' => 'Femenil 14 a 15 a–os',
-        'JF' => 'Femenil 16 a 19 a–os',
-        'R' => 'Femenil 20 a 24 a–os',
-        'O' => 'Femenil 25 a 29 a–os',
-        'P' => 'Femenil 30 a 34 a–os',
-        'Q' => 'Femenil 35 a 39 a–os',
-        'R' => 'Femenil 40 a 44 a–os',
-        'S' => 'Femenil 45 a 49 a–os',
-        'T' => 'Femenil 50 a 54 a–os',
-        'V' => 'Femenil 55 a 59 a–os',
-        'IC' => 'Varonil 14 a 15 a–os',
-        'JV' => 'Varonil 16 a 19 a–os',
-        'A' => 'Varonil 20 a 24 a–os',
-        'B' => 'Varonil 25 a 29 a–os',
-        'C' => 'Varonil 30 a 34 a–os',
-        'D' => 'Varonil 35 a 39 a–os',
-        'E' => 'Varonil 40 a 44 a–os',
-        'F' => 'Varonil 45 a 49 a–os',
-        'G' => 'Varonil 50 a 54 a–os',
-        'H' => 'Varonil 55 a 59 a–os',
-        'I' => 'Varonil 60 a–os y mayores',
+        'IF' => 'Femenil 14 a 15 aÃ±os',
+        'JF' => 'Femenil 16 a 19 aÃ±os',
+        'R' => 'Femenil 20 a 24 aÃ±os',
+        'O' => 'Femenil 25 a 29 aÃ±os',
+        'P' => 'Femenil 30 a 34 aÃ±os',
+        'Q' => 'Femenil 35 a 39 aÃ±os',
+        'R' => 'Femenil 40 a 44 aÃ±os',
+        'S' => 'Femenil 45 a 49 aÃ±os',
+        'T' => 'Femenil 50 a 54 aÃ±os',
+        'V' => 'Femenil 55 a 59 aÃ±os',
+        'IC' => 'Varonil 14 a 15 aÃ±os',
+        'JV' => 'Varonil 16 a 19 aÃ±os',
+        'A' => 'Varonil 20 a 24 aÃ±os',
+        'B' => 'Varonil 25 a 29 aÃ±os',
+        'C' => 'Varonil 30 a 34 aÃ±os',
+        'D' => 'Varonil 35 a 39 aÃ±os',
+        'E' => 'Varonil 40 a 44 aÃ±os',
+        'F' => 'Varonil 45 a 49 aÃ±os',
+        'G' => 'Varonil 50 a 54 aÃ±os',
+        'H' => 'Varonil 55 a 59 aÃ±os',
+        'I' => 'Varonil 60 aÃ±os y mayores'
     );
 
 
@@ -131,7 +131,7 @@ class Client {
     {
         if(array_key_exists($this->category, self::categories))
         {
-            $c = self::categories[$c];
+            $c = self::$categories[$this->category];
         } else {
             $c = 'Error en el sistema';
         }
