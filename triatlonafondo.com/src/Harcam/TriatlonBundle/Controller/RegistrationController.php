@@ -77,7 +77,7 @@ class RegistrationController extends Controller
             // Throw a new page explaining the issue and instruct to contact the admin
             $msg = "El email introducido ya ha sido registrado en el sistema anteriormente.
                     Si necesitas editar tus datos o consultar el status de tu registro, favor
-                    de escribir a <a href='mailto:tritanes@gmail.com'>tritanes@gmail.com</a>";
+                    de escribir a <a class='email' href='mailto:tritanes@gmail.com'>tritanes@gmail.com</a>.";
 
             return $this->render('HarcamTriatlonBundle:Registration:error.html.twig',
                 array('msg' => $msg));

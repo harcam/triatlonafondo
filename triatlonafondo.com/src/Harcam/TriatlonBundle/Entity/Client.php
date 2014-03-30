@@ -103,6 +103,24 @@ class Client {
         return $this->name . " " . $this->lastName;
     }
 
+    public function getCategoryName()
+    {
+        switch($this->category)
+        {
+            case 'F':
+                $c = 'Femenil...';
+                break;
+            case 'I':
+                $c = 'Femenil2...';
+                break;
+            default:
+                $c = 'Error en el sistema!';
+                break;
+        }
+
+        return $c;
+    }
+
 
     #########################
     ## GETTERs AND SETTERs ##

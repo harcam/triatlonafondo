@@ -25,41 +25,30 @@
     <p>Por favor ingresa tus datos y al terminar presiona el botón "Inscribir".</p>
     <p><small>Nota: Los campos (*) son obligatorios.</small></p>
 
+    {% if mode == 'edit' %}
     <form id="form" class="pure-form pure-form-aligned"
           action="{{ path('harcam_triatlon_signup_process') }}" method="post">
 
         <fieldset>
             <div class="pure-control-group">
                 <label for="name"><strong>Nombre*</strong></label>
-                {% if mode == 'edit' %}
                     <input id="name" name="name" type="text" placeholder="Nombre"
                         {% if data is defined %} value="{{ data.name }}" {% endif %}
                     >
-                {% else %}
-                    <p>{{ client.name }}</p>
-                {% endif %}
             </div>
 
             <div class="pure-control-group">
                 <label for="lasName"><strong>Apellidos*</strong></label>
-                {% if mode == 'edit' %}
                     <input id="lastName" name="lastName" type="text" placeholder="Apellidos"
                         {% if data is defined %} value="{{ data.lastName }}" {% endif %}
                     >
-                {% else %}
-                    <p>{{ client.lastName }}</p>
-                {% endif %}
             </div>
             
             <div class="pure-control-group">
                 <label for="email"><strong>E-mail*</strong></label>
-                {% if mode == 'edit' %}
                     <input id="email" name="email" type="email" placeholder="usuario@ejemplo.com"
                         {% if data is defined %} value="{{ data.email }}" {% endif %}
                     >
-                {% else %}
-                    <p>{{ client.email }}</p>
-                {% endif %}
             </div>
 
             <div class="pure-control-group">
@@ -111,55 +100,58 @@
 
             <div class="pure-control-group">
                 <label for="team">Equipo</label>
-                {% if mode == 'edit' %}
                 <input id="team" name="team" type="text" placeholder="Equipo"
                 {% if data is defined %} value="{{ data.team }}" {% endif %}
                     >
-                {% else %}
-                    <p>{{ client.team }}</p>
-                {% endif %}
             </div>
 
             <div class="pure-control-group">
                 <label for="swimTime">Tiempo aproximado para 100m de nado</label>
-                {% if mode == 'edit' %}
                 <input id="swimTime" name="swimTime" type="text" placeholder="mm:ss"
                        {% if data is defined %} value="{{ data.swimTime }}" {% endif %}
                     >
-                {% else %}
-                    <p>{{ client.swimTime }}</p>
-                {% endif %}
             </div>
 
             <div class="pure-control-group">
                 <label for="phoneNumber">Teléfono de Contacto</label>
-                {% if mode == 'edit' %}
                 <input id="phoneNumber" name="phoneNumber" type="text" placeholder=""
                        {% if data is defined %} value="{{ data.phoneNumber }}" {% endif %}
                     >
-                {% else %}
-                    <p>{{ client.phoneNumber }}</p>
-                {% endif %}
             </div>
 
-            {% if mode == 'edit' %}
             <div class="pure-controls">
                 <button type="submit" class="pure-button pure-button-primary">Inscribir</button>
             </div>
-            {% else %}
-            {# PayPal Payment Forms#}
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                <input type="hidden" name="cmd" value="_xclick">
-                <input type="hidden" name="business" value="you@youremail.com">
-                <input type="hidden" name="item_name" value="Inscripción Triatlón Tritanes">
-                <input type="hidden" name="currency_code" value="MXN">
-                <input type="hidden" name="amount" value="500.00">
-                <input type="image" src="http://www.paypal.com/es_XC/i/btn/x-click-but01.gif"
-                       name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-            </form>
-            {% endif %}
         </fieldset>
     </form>
+    {% else %}
+
+        <h3>Registro exitoso!</h3>
+        <p>Recibirás un correo de confirmación de registro. Verifica tus datos antes de continuar con el pago.</p>
+
+        <h4>Información de Registro</h4>
+        <ul>
+            <li>Nombre: {{ client.getFullName() }}</li>
+            <li>Email: {{ client.email }}</li>
+            <li>Categoría: {{ client.category }} - {{ client.getCategoryName }}</li>
+            <li>Equipo: {% if client.team %}{{ client.team }}{% else %}No especificado{% endif %}</li>
+            <li>Tiempo en 100m: {% if client.swimTime %}{{ client.swimTime }} segundos{% else %}No especificado{% endif %}</li>
+            <li>Teléfono: {% if client.phoneNumber %}{{ client.phoneNumber }}{% else %}Ninguno{% endif %}</li>
+        </ul>
+
+
+
+        {# PayPal Payment Forms#}
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="you@youremail.com">
+            <input type="hidden" name="item_name" value="Inscripción Triatlón Tritanes">
+            <input type="hidden" name="currency_code" value="MXN">
+            <input type="hidden" name="amount" value="500.00">
+            <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_paynow_cc_144x47.png"
+                   name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+        </form>
+    {% endif %}
 
 
 </div>
