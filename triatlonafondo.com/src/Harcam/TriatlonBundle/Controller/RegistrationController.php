@@ -98,7 +98,7 @@ class RegistrationController extends Controller
 
         // Render as successful
         return $this->render('HarcamTriatlonBundle:Registration:confirm.html.twig',
-            array('client' => $client);
+            array('client' => $client));
 
     }
 
