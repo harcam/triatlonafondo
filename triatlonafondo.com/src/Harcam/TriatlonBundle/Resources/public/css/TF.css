@@ -79,6 +79,22 @@ a:hover, a:active, a:focus {
 	clear:both;
 	font-size: 0.70em;
 	text-align: center;
+}	
+}
+.logros{
+	font-size: 0.7em;
+	color: #000099;
+	float:left;
+	width:350px;
+}
+.capacitacion{
+	font-size: 0.7em;
+	color: #009933;
+	float:right;
+	width:350px;
+}
+.ttitle{
+	font-size: 1.2em;
 }
 #registro{
 	background-color: #FF9933;
