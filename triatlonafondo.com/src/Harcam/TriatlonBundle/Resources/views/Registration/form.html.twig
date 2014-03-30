@@ -7,7 +7,53 @@
     <div>
         <h1>Registro</h1>
     </div>
-
+<?php
+	if ( isset( $_POST["submitButton"] ) ) {
+	  processForm();
+	} else {
+	  displayForm( array() );
+	}
+	function validateField( $fieldName, $missingFields ) {
+	  if ( in_array( $fieldName, $missingFields ) ) {
+	    echo ' class="error"';
+	  }
+	}
+	function setValue( $fieldName ) {
+	  if ( isset( $_POST[$fieldName] ) ) {
+	    echo $_POST[$fieldName];
+	  }
+	}
+	function setChecked( $fieldName, $fieldValue ) {
+	  if ( isset( $_POST[$fieldName] ) and $_POST[$fieldName] == $fieldValue ) {
+	    echo ' checked="checked"';
+	  }
+	}
+	function setSelected( $fieldName, $fieldValue ) {
+	  if ( isset( $_POST[$fieldName] ) and $_POST[$fieldName] == $fieldValue ) {
+	    echo ' selected="selected"';
+	  }
+	}
+	function processForm() {
+	  $requiredFields = array( "nombre", "apellido", "afiliacion",
+	 "email");
+	  $missingFields = array();
+	  foreach ( $requiredFields as $requiredField ) {
+	    if ( !isset( $_POST[$requiredField] ) or !$_POST[$requiredField] ) {
+	      $missingFields[] = $requiredField;
+	    }
+	}
+	  if ( $missingFields ) {
+	    displayForm( $missingFields );
+	  } else {
+	    displayThanks();
+	} }
+	function displayForm( $missingFields ) {
+	?>
+		<?php if ( $missingFields ) { ?>
+    <p class="error">Algunos datos requeridos no fueron llenados, favor de llenar los campos resaltados.</p>
+    <?php } else { ?>
+    <p>Bienvenido al registro del Triatlón Tritanes, favor de llenar los campos con un (*). Al terminar presionar el botón "Inscribir".</p>
+<?php } ?>
     <form id="form" action="Registro.php" method="post">
 	<div>
     	<label for="categoria">Categoría*:</label>
