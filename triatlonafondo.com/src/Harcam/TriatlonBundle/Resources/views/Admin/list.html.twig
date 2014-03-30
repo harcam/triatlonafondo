@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Static Top Navbar Example for Bootstrap</title>
+    <title>Administrador de Registro</title>
 
     <!-- Bootstrap core CSS -->
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -66,17 +66,7 @@
 
 <div class="container">
 
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
-        <p>
-            <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p>
-    </div>
-
-    <table>
+    <table class="table">
         <thead>
         <tr>
             <th>Full Name</th>
@@ -96,7 +86,7 @@
                 <td>
                     <form action="{{ path('harcam_triatlon_admin_client_delete', {'id':client.clientId}) }}" method="post">
                         <input type="hidden" name="clientId" value="{{ client.clientId }}" />
-                        <input type="submit" name="delete" value="Delete" />
+                        <button class="btn btn-xs" type="submit" name="delete">Delete</button>
                     </form>
                 </td>
             </tr>
