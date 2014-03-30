@@ -4,96 +4,54 @@
 <!-- start .content -->
 <div class="content">
 
-<div id="instrucciones">
-    <h1>Instrucciones para el registro del triatlón</h1>
-    <p>Para el registro del triatlón Tritanes, sigue los siguientes pasos:
-        <ol>
-            <li>Llena los datos solicitados en el siguiente formulario. Recuerda que tu número de afiliación a la FMTRI (Federación Mexicana de Triatlón) consta de 11 dígitos.</li>
-            <li>Presiona “Registrar” y en poco tiempo recibirás un correo de confirmación con tus datos.</li>
-            <li>Realiza el pago en cualquier tienda OXXO, o directamente en bancos SANTANDER(Presencial o Transferencia) a la cuenta:</li>
-                <ul>
-                    <li><strong>No Cuenta:</strong> 2000842671</li>
-                    <li><strong>CLABE:</strong>014580200084262714</li>
-                </ul>
-                <p>Es importante que guardes los datos de la transacción:</p>
-                <ul>
-                    <li><strong>Santander:</strong>Número de referencia de pago (tanto en depósito como en transferencia electrónica)</li>
-                    <li><strong>OXXO:</strong> Folio de Venta y Autorización</li>
-                </ul>
-            <li>Entra en la página de triatlonafondo.com a la sección Confirmar Pago, que se encuentra en Triatlón Tritanes del menú principal y proporciona los siguientes datos:</li>
-            <ol>
-                <li>Email usado en el registro</li>
-                <li>Tipo de pago (Transferencia, Depósito, Pago en Oxxo)</li>
-                <li>Número de autorización (Sólo para Oxxo)</li>
-                <li>Número de Folio de venta (Sólo para Oxxo)</li>
-                <li>Referencia de pago (Depósito o Transferencia)</li>
-            </ol>
-            <li>En el transcurso de unos días recibirás un correo de confirmación con tu número de competidor.</li>
-        </ol>
-</p>
-    
-</div>
-
     <div>
         <h1>Registro</h1>
     </div>
 
-    {{ form_start(form) }}
-    {{ form_errors(form) }}
-
-    <div>
-        {{ form_label(form.distance) }}
-        {{ form_errors(form.distance) }}
-        {{ form_widget(form.distance) }}
-    </div>
-
-    <div>
-        {{ form_label(form.category) }}
-        {{ form_errors(form.category) }}
-        {{ form_widget(form.category) }}
-    </div>
-
-    <div>
-        {{ form_label(form.name) }}
-        {{ form_errors(form.name) }}
-        {{ form_widget(form.name) }}
-    </div>
-
-    <div>
-        {{ form_label(form.lastName) }}
-        {{ form_errors(form.lastName) }}
-        {{ form_widget(form.lastName) }}
-    </div>
-
-    <div>
-        {{ form_label(form.affiliationNumber) }}
-        {{ form_errors(form.affiliationNumber) }}
-        {{ form_widget(form.affiliationNumber) }}
-    </div>
-
-    <div>
-        {{ form_label(form.team) }}
-        {{ form_errors(form.team) }}
-        {{ form_widget(form.team) }}
-    </div>
-
-    <div>
-        {{ form_label(form.phoneNumber) }}
-        {{ form_errors(form.phoneNumber) }}
-        {{ form_widget(form.phoneNumber) }}
-    </div>
-
-    <div>
-        {{ form_label(form.email) }}
-        {{ form_errors(form.email) }}
-        {{ form_widget(form.email) }}
-    </div>
-
-    <div>
-        {{ form_widget(form.save) }}
-    </div>
-
-    {{ form_end(form) }}
+    <form id="form" action="Registro.php" method="post">
+	<div>
+    	<label for="categoria">Categoría*:</label>
+	<select name="categoria"<?php setValue( "categoria" ) ?> >
+			<option value="IF">Femenil 14 a 15 años</option>
+	    		<option value="JF">Femenil 16 a 19 años</option>
+		    	<option value="R">Femenil 20 a 24 años</option>
+		    	<option value="O">Femenil 25 a 29 años</option>
+			<option value="P">Femenil 30 a 34 años</option>
+	    		<option value="Q">Femenil 35 a 39 años</option>
+			<option value="R">Femenil 40 a 44 años</option>
+    			<option value="S">Femenil 45 a 49 años</option>
+		    	<option value="T">Femenil 50 a 54 años</option>
+		    	<option value="V">Femenil 55 a 59 años</option>
+			<option value="IC">Varonil 14 a 15 años</option>
+		    	<option value="JV">Varonil 16 a 19 años</option>
+			<option value="A">Varonil 20 a 24 años</option>
+		    	<option value="B">Varonil 25 a 29 años</option>
+		    	<option value="C">Varonil 30 a 34 años</option>
+			<option value="D">Varonil 40 a 44 años</option>
+			<option value="E">Varonil 45 a 49 años</option>
+	    		<option value="F">Varonil 50 a 54 años</option>
+    			<option value="G">Varonil 55 a 59 años</option>
+			<option value="H">Varonil 60 y mayores</option>
+	</select><br/>
+	<label for="nombre"<?php validateField( "nombre",$missingFields ) ?> > Nombre*:</label>
+	    	<input type="text" name="nombre" /><br/>
+	<label for="apellido" <?php validateField( "apellido",$missingFields ) ?>>Apellidos*:</label>
+		<input type="text" name="apellido" /><br/>
+    	<label for="equipo">Equipo:</label>
+	    	<input type="text" name="equipo"/><br/>
+	<label for="swimTime" <?php validateField( "afiliacion",$missingFields ) ?>>Tiempo aproximado para 100 m de nado::</label>
+		<input type="text" name="afiliacion" /><br/>
+	<label for="tel">Teléfono de contacto:</label>
+		<input type="text" name="tel"/><br/>
+	<label for="email" <?php validateField( "email",$missingFields ) ?>>Email*:</label>
+		<input type="text" name="email"/>
+	<input type="submit" value="Inscribir"/><br/>
+			</div>
+    
+        
+    </form>
+    
+    
 
 </div>
 <!-- end .content -->
