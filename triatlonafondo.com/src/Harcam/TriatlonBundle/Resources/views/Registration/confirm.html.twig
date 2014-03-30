@@ -1,0 +1,38 @@
+{{ include('HarcamTriatlonBundle:Layout:header.html.twig') }}
+{{ include('HarcamTriatlonBundle:Layout:sidebar.html.twig') }}
+
+<!-- start .content -->
+<div class="content">
+
+<div>
+    <h3>Registro exitoso!</h3>
+</div>
+
+        <p>Recibirás un correo de confirmación de registro. Verifica tus datos antes de continuar con el pago.</p>
+
+        <h4>Información de Registro</h4>
+        <ul>
+            <li><strong>Nombre:</strong> {{ client.getFullName() }}</li>
+            <li><strong>Email:</strong> {{ client.email }}</li>
+            <li><strong>Categoría:</strong> {{ client.category }} - {{ client.getCategoryName }}</li>
+            <li><strong>Equipo:</strong> {% if client.team %}{{ client.team }}{% else %}No especificado{% endif %}</li>
+            <li><strong>Tiempo en 100m:</strong> {% if client.swimTime %}{{ client.swimTime }} segundos{% else %}No especificado{% endif %}</li>
+            <li><strong>Teléfono:</strong> {% if client.phoneNumber %}{{ client.phoneNumber }}{% else %}Ninguno{% endif %}</li>
+        </ul>
+
+        {# PayPal Payment Forms#}
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="you@youremail.com">
+            <input type="hidden" name="item_name" value="Inscripción Triatlón Tritanes">
+            <input type="hidden" name="currency_code" value="MXN">
+            <input type="hidden" name="amount" value="500.00">
+            <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_paynow_cc_144x47.png"
+                   name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+        </form>
+
+
+</div>
+<!-- end .content -->
+
+{{ include('HarcamTriatlonBundle:Layout:footer.html.twig') }}
