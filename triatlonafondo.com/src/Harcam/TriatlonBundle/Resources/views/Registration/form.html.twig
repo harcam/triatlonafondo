@@ -68,30 +68,50 @@
                     <option value="">- Selecciona una categoría -</option>
                     <option value="IF" {% if data is defined and data.category == 'IF' %}selected{% endif %}
                             >Femenil 14 a 15 años</option>
-                    <option value="JF">Femenil 16 a 19 años</option>
-                    <option value="R">Femenil 20 a 24 años</option>
-                    <option value="O">Femenil 25 a 29 años</option>
-                    <option value="P">Femenil 30 a 34 años</option>
-                    <option value="Q">Femenil 35 a 39 años</option>
-                    <option value="R">Femenil 40 a 44 años</option>
-                    <option value="S">Femenil 45 a 49 años</option>
-                    <option value="T">Femenil 50 a 54 años</option>
-                    <option value="V">Femenil 55 a 59 años</option>
-                    <option value="IC">Varonil 14 a 15 años</option>
-                    <option value="JV">Varonil 16 a 19 años</option>
-                    <option value="A">Varonil 20 a 24 años</option>
-                    <option value="B">Varonil 25 a 29 años</option>
-                    <option value="C">Varonil 30 a 34 años</option>
-                    <option value="D">Varonil 40 a 44 años</option>
-                    <option value="E">Varonil 45 a 49 años</option>
-                    <option value="F">Varonil 50 a 54 años</option>
-                    <option value="G">Varonil 55 a 59 años</option>
-                    <option value="H">Varonil 60 y mayores</option>
+                    <option value="JF" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Femenil 16 a 19 años</option>
+                    <option value="R" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Femenil 20 a 24 años</option>
+                    <option value="O" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Femenil 25 a 29 años</option>
+                    <option value="P" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Femenil 30 a 34 años</option>
+                    <option value="Q" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Femenil 35 a 39 años</option>
+                    <option value="R" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Femenil 40 a 44 años</option>
+                    <option value="S" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Femenil 45 a 49 años</option>
+                    <option value="T" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Femenil 50 a 54 años</option>
+                    <option value="V" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Femenil 55 a 59 años</option>
+                    <option value="IC"{% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Varonil 14 a 15 años</option>
+                    <option value="JV"{% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Varonil 16 a 19 años</option>
+                    <option value="A" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Varonil 20 a 24 años</option>
+                    <option value="B" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Varonil 25 a 29 años</option>
+                    <option value="C" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Varonil 30 a 34 años</option>
+                    <option value="D" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Varonil 40 a 44 años</option>
+                    <option value="E" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Varonil 45 a 49 años</option>
+                    <option value="F" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Varonil 50 a 54 años</option>
+                    <option value="G" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Varonil 55 a 59 años</option>
+                    <option value="H" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Varonil 60 y mayores</option>
                 </select>
             </div>
 
             <div class="pure-control-group">
                 <label for="team">Equipo</label>
+                {% if mode == 'edit' %}
                 <input id="team" name="team" type="text" placeholder="Equipo"
                 {% if data is defined %} value="{{ data.team }}" {% endif %}
                     >
@@ -102,6 +122,7 @@
 
             <div class="pure-control-group">
                 <label for="swimTime">Tiempo aproximado para 100m de nado</label>
+                {% if mode == 'edit' %}
                 <input id="swimTime" name="swimTime" type="text" placeholder="mm:ss"
                        {% if data is defined %} value="{{ data.swimTime }}" {% endif %}
                     >
@@ -112,6 +133,7 @@
 
             <div class="pure-control-group">
                 <label for="phoneNumber">Teléfono de Contacto</label>
+                {% if mode == 'edit' %}
                 <input id="phoneNumber" name="phoneNumber" type="text" placeholder=""
                        {% if data is defined %} value="{{ data.phoneNumber }}" {% endif %}
                     >
