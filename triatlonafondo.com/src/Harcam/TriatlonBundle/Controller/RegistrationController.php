@@ -129,9 +129,13 @@ class RegistrationController extends Controller
 
     private function swimTimeToSeconds($time)
     {
-        $timeArray = explode(':', $time);
-
-        return (intval($timeArray[0]) * 60) + intval($timeArray[1]);
+        if($this->validateSwimTime($time))
+        {
+            $timeArray = explode(':', $time);
+            return (intval($timeArray[0]) * 60) + intval($timeArray[1]);
+        } else {
+            return null;
+        }
     }
 
 }
