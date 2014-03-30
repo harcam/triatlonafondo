@@ -68,7 +68,7 @@ class RegistrationController extends Controller
         }
 
         // Form is ok.  Check if the email is unique.
-        $client = $doctrine->getRepository('HarcarmTriatlon:Client')
+        $client = $doctrine->getRepository('HarcamTriatlonBundle:Client')
             ->findOneBy( array('email' => $data['email']) );
 
         if($client)
