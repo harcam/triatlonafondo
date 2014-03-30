@@ -1,0 +1,28 @@
+# PaypalIpnBundle Configuration
+orderly_pay_pal_ipn:
+
+    # If set to false then service loads settings with "sandbox_" prefix
+    islive:  false
+
+    # Constants for the live environment (default settings in Configuration.php)
+    email:    sales@CHANGEME.com
+    url:      https://www.paypal.com/cgi-bin/webscr
+    proxy:    ~
+    debug:    %kernel.debug%
+    pdttoken: pdt-token
+
+    # Constants for the sandbox environment (default settings in Configuration.php)
+    sandbox_email:       system_CHANGEME_biz@CHANGEME.com
+    sandbox_url:         https://www.sandbox.paypal.com/cgi-bin/webscr
+    sandbox_proxy:       ~
+    sandbox_debug:       true
+    sandbox_response:    VERIFIED
+    sandbox_pdttoken:    pdt-token
+    sandbox_pdtresponse:
+        payment_status: Completed
+        mc_gross: 123.00
+
+    drivers:
+        orm:
+            object_manager: doctrine.orm.entity_manager
+            classes: ~
