@@ -7,97 +7,80 @@
     <div>
         <h1>Registro</h1>
     </div>
-<?php
-	if ( isset( $_POST["submitButton"] ) ) {
-	  processForm();
-	} else {
-	  displayForm( array() );
-	}
-	function validateField( $fieldName, $missingFields ) {
-	  if ( in_array( $fieldName, $missingFields ) ) {
-	    echo ' class="error"';
-	  }
-	}
-	function setValue( $fieldName ) {
-	  if ( isset( $_POST[$fieldName] ) ) {
-	    echo $_POST[$fieldName];
-	  }
-	}
-	function setChecked( $fieldName, $fieldValue ) {
-	  if ( isset( $_POST[$fieldName] ) and $_POST[$fieldName] == $fieldValue ) {
-	    echo ' checked="checked"';
-	  }
-	}
-	function setSelected( $fieldName, $fieldValue ) {
-	  if ( isset( $_POST[$fieldName] ) and $_POST[$fieldName] == $fieldValue ) {
-	    echo ' selected="selected"';
-	  }
-	}
-	function processForm() {
-	  $requiredFields = array( "nombre", "apellido", "afiliacion",
-	 "email");
-	  $missingFields = array();
-	  foreach ( $requiredFields as $requiredField ) {
-	    if ( !isset( $_POST[$requiredField] ) or !$_POST[$requiredField] ) {
-	      $missingFields[] = $requiredField;
-	    }
-	}
-	  if ( $missingFields ) {
-	    displayForm( $missingFields );
-	  } else {
-	    displayThanks();
-	} }
-	function displayForm( $missingFields ) {
-	?>
-		<?php if ( $missingFields ) { ?>
-    <p class="error">Algunos datos requeridos no fueron llenados, favor de llenar los campos resaltados.</p>
-    <?php } else { ?>
-    <p>Bienvenido al registro del Triatlón Tritanes, favor de llenar los campos con un (*). Al terminar presionar el botón "Inscribir".</p>
-<?php } ?>
-    <form id="form" action="Registro.php" method="post">
-	<div>
-    	<label for="categoria">Categoría*:</label>
-	<select name="categoria"<?php setValue( "categoria" ) ?> >
-			<option value="IF">Femenil 14 a 15 años</option>
-	    		<option value="JF">Femenil 16 a 19 años</option>
-		    	<option value="R">Femenil 20 a 24 años</option>
-		    	<option value="O">Femenil 25 a 29 años</option>
-			<option value="P">Femenil 30 a 34 años</option>
-	    		<option value="Q">Femenil 35 a 39 años</option>
-			<option value="R">Femenil 40 a 44 años</option>
-    			<option value="S">Femenil 45 a 49 años</option>
-		    	<option value="T">Femenil 50 a 54 años</option>
-		    	<option value="V">Femenil 55 a 59 años</option>
-			<option value="IC">Varonil 14 a 15 años</option>
-		    	<option value="JV">Varonil 16 a 19 años</option>
-			<option value="A">Varonil 20 a 24 años</option>
-		    	<option value="B">Varonil 25 a 29 años</option>
-		    	<option value="C">Varonil 30 a 34 años</option>
-			<option value="D">Varonil 40 a 44 años</option>
-			<option value="E">Varonil 45 a 49 años</option>
-	    		<option value="F">Varonil 50 a 54 años</option>
-    			<option value="G">Varonil 55 a 59 años</option>
-			<option value="H">Varonil 60 y mayores</option>
-	</select><br/>
-	<label for="nombre"<?php validateField( "nombre",$missingFields ) ?> > Nombre*:</label>
-	    	<input type="text" name="nombre" /><br/>
-	<label for="apellido" <?php validateField( "apellido",$missingFields ) ?>>Apellidos*:</label>
-		<input type="text" name="apellido" /><br/>
-    	<label for="equipo">Equipo:</label>
-	    	<input type="text" name="equipo"/><br/>
-	<label for="swimTime" <?php validateField( "afiliacion",$missingFields ) ?>>Tiempo aproximado para 100 m de nado::</label>
-		<input type="text" name="afiliacion" /><br/>
-	<label for="tel">Teléfono de contacto:</label>
-		<input type="text" name="tel"/><br/>
-	<label for="email" <?php validateField( "email",$missingFields ) ?>>Email*:</label>
-		<input type="text" name="email"/>
-	<input type="submit" value="Inscribir"/><br/>
-			</div>
-    
-        
+
+    {% if error is defined %}
+        {% if error == 1 %}
+        <p class="error">Algunos datos requeridos no fueron llenados, favor de llenar los campos resaltados.</p>
+        {% elseif error == 2 %}
+        {% endif %}
+    {% endif %}
+    <p>Bienvenido al registro del Triatlón Tritanes, los campos en negritas son obligatorios. Al terminar presiona el
+        botón "Inscribir".</p>
+
+    <form id="form" action="{{ path('harcam_triatlon_signup_process') }}" method="post">
+        <div>
+            <label for="categoria"><b>Categoría:</b></label>
+            <select name="categoria">
+                <option value="IF">Femenil 14 a 15 años</option>
+                <option value="JF">Femenil 16 a 19 años</option>
+                <option value="R">Femenil 20 a 24 años</option>
+                <option value="O">Femenil 25 a 29 años</option>
+                <option value="P">Femenil 30 a 34 años</option>
+                <option value="Q">Femenil 35 a 39 años</option>
+                <option value="R">Femenil 40 a 44 años</option>
+                <option value="S">Femenil 45 a 49 años</option>
+                <option value="T">Femenil 50 a 54 años</option>
+                <option value="V">Femenil 55 a 59 años</option>
+                <option value="IC">Varonil 14 a 15 años</option>
+                <option value="JV">Varonil 16 a 19 años</option>
+                <option value="A">Varonil 20 a 24 años</option>
+                <option value="B">Varonil 25 a 29 años</option>
+                <option value="C">Varonil 30 a 34 años</option>
+                <option value="D">Varonil 40 a 44 años</option>
+                <option value="E">Varonil 45 a 49 años</option>
+                <option value="F">Varonil 50 a 54 años</option>
+                <option value="G">Varonil 55 a 59 años</option>
+                <option value="H">Varonil 60 y mayores</option>
+            </select>
+
+            <br/>
+
+            <label for="nombre"><b>Nombre:</b></label>
+            <input type="text" name="nombre"/>
+
+            <br/>
+
+            <label for="apellido"><b>Apellidos:</b></label>
+            <input type="text" name="apellido"/>
+
+            <br/>
+
+            <label for="equipo">Equipo:</label>
+            <input type="text" name="equipo"/>
+
+            <br/>
+
+            <label for="swimTime">Tiempo aproximado para 100 m de nado:</label>
+            <input type="text" name="afiliacion"/>
+
+            <br/>
+
+            <label for="tel">Teléfono de contacto:</label>
+            <input type="text" name="tel"/>
+
+            <br/>
+
+            <label for="email"><b>Email:</b></label>
+            <input type="text" name="email"/>
+
+            <br/>
+
+            <input type="submit" value="Inscribir"/>
+        </div>
+
+
     </form>
-    
-    
+
 
 </div>
 <!-- end .content -->
