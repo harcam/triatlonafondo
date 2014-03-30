@@ -138,3 +138,10 @@ a:hover, a:active, a:focus {
 #tritan{
 	margin-bottom: 10px;
 }
+a.email{
+    color: #0E0E0E;
+}
+
+a.sidebarLink:hover{
+    color: #0E0E0E;
+}
