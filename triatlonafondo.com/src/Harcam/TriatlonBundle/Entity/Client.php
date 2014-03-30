@@ -129,7 +129,7 @@ class Client {
             'I' => 'Varonil 60 años y mayores'
         );
 
-        if(array_key_exists($this->category, self::categories))
+        if(array_key_exists($this->category, $categories))
         {
             $c = $categories[$this->category];
         } else {
