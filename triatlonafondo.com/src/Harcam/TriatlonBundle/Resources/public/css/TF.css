@@ -61,14 +61,13 @@ a:hover, a:active, a:focus {
 
 }
 .content{
-	float: right;
 	width: 770px;
 	margin-top: 10px;
 	margin-right:10px;
 	margin-left:5px;
 	margin-bottom:10px;
 	background-color: #FFFFFF;
-	overflow: scroll;
+	
 }
 .footer{
 	background-color: #0E0E0E;
