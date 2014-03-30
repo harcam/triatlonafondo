@@ -66,7 +66,8 @@
                 <label for="category"><strong>Categoría*</strong></label>
                 <select id="category" name="category">
                     <option value="">- Selecciona una categoría -</option>
-                    <option value="IF">Femenil 14 a 15 años</option>
+                    <option value="IF" {% if data is defined and data.category == 'IF' %}selected{% endif %}
+                            >Femenil 14 a 15 años</option>
                     <option value="JF">Femenil 16 a 19 años</option>
                     <option value="R">Femenil 20 a 24 años</option>
                     <option value="O">Femenil 25 a 29 años</option>
