@@ -61,7 +61,7 @@ a:hover, a:active, a:focus {
 
 }
 .content{
-	width: 770px;
+	width: auto;
 	margin-top: 10px;
 	margin-right:5px;
 	margin-left:10px;
