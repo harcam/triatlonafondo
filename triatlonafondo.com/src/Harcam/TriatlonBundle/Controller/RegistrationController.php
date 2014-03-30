@@ -57,7 +57,7 @@ class RegistrationController extends Controller
             $error = 3;
         } elseif($data['category'] == "") {
             $error = 4;
-        } elseif(!$this->validateSwimTime($data['swimTime'])) {
+        } elseif($data['swimTime'] != "" && !$this->validateSwimTime($data['swimTime'])) {
             $error = 5;
         }
 
