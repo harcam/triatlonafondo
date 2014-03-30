@@ -41,18 +41,30 @@
             </div>
 
             <div class="pure-control-group">
-                <label for="lastName"><strong>Apellidos*</strong></label>
-                <input id="lastName" name="lastName" type="text" placeholder="Apellidos">
+                <label for="lasName"><strong>Apellidos*</strong></label>
+                {% if mode == 'edit' %}
+                    <input id="lastName" name="lastName" type="text" placeholder="Apellidos"
+                        {% if data is defined %} value="{{ data.lastName }}" {% endif %}
+                    >
+                {% else %}
+                    <p>{{ client.lastName }}</p>
+                {% endif %}
             </div>
-
+            
             <div class="pure-control-group">
-                <label for="email"><strong>Email*</strong></label>
-                <input id="email" type="email" placeholder="usuario@ejemplo.com">
+                <label for="email"><strong>E-mail*</strong></label>
+                {% if mode == 'edit' %}
+                    <input id="email" name="email" type="email" placeholder="usuario@ejemplo.com"
+                        {% if data is defined %} value="{{ data.email }}" {% endif %}
+                    >
+                {% else %}
+                    <p>{{ client.email }}</p>
+                {% endif %}
             </div>
 
             <div class="pure-control-group">
                 <label for="category"><strong>Categoría*</strong></label>
-                <select id="category">
+                <select id="category" name="category">
                     <option value="">- Selecciona una categoría -</option>
                     <option value="IF">Femenil 14 a 15 años</option>
                     <option value="JF">Femenil 16 a 19 años</option>
@@ -79,17 +91,32 @@
 
             <div class="pure-control-group">
                 <label for="team">Equipo</label>
-                <input id="team" type="text" placeholder="Equipo">
+                <input id="team" name="team" type="text" placeholder="Equipo"
+                {% if data is defined %} value="{{ data.team }}" {% endif %}
+                    >
+                {% else %}
+                    <p>{{ client.team }}</p>
+                {% endif %}
             </div>
 
             <div class="pure-control-group">
                 <label for="swimTime">Tiempo aproximado para 100m de nado</label>
-                <input id="swimTime" type="text" placeholder="mm:ss">
+                <input id="swimTime" name="swimTime" type="text" placeholder="mm:ss"
+                       {% if data is defined %} value="{{ data.swimTime }}" {% endif %}
+                    >
+                {% else %}
+                    <p>{{ client.swimTime }}</p>
+                {% endif %}
             </div>
 
             <div class="pure-control-group">
                 <label for="phoneNumber">Teléfono de Contacto</label>
-                <input id="phoneNumber" type="text" placeholder="">
+                <input id="phoneNumber" name="phoneNumber" type="text" placeholder=""
+                       {% if data is defined %} value="{{ data.phoneNumber }}" {% endif %}
+                    >
+                {% else %}
+                    <p>{{ client.phoneNumber }}</p>
+                {% endif %}
             </div>
 
             <div class="pure-controls">
