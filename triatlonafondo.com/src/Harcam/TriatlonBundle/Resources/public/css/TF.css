@@ -29,7 +29,7 @@ a:hover, a:active, a:focus {
 #logo:hover{
 	border: 2px solid #FF9933;
 }
-img{
+.contentImage{
     display: block;
     margin-left: auto;
     margin-right: auto;
