@@ -94,6 +94,9 @@ class RegistrationController extends Controller
 
         // Save to the database
         $em->persist($client);
+        $em->flush();
+
+        // Send the email
 
 
         // Render as successful
