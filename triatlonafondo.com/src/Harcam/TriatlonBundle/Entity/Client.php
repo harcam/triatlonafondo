@@ -56,7 +56,7 @@ class Client {
     /**
      * @ORM\Column(type="integer", nullable=false)
      */
-    protected $time100;
+    protected $swimTime;
 
     /**
      * @ORM\Column(type="datetime", nullable=false)
