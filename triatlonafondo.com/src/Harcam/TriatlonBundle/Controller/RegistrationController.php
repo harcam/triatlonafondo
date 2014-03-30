@@ -94,6 +94,8 @@ class RegistrationController extends Controller
         $client->setPhoneNumber($data['phoneNumber']);
 
         // Save to the database
+        $em->persist($client);
+
 
         // Render as successful
         return $this->render('HarcamTriatlonBundle:Registration:form.html.twig',
@@ -102,43 +104,14 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Ask for a password in case the client already exists
+     * Confirm the client's information and send to PayPal
      *
      * @param Request $request
      * @return Response
      */
-    public function clientVerificationAction(Request $request)
+    public function confirmAction(Request $request)
     {
 
-    }
-
-    /**
-     * Process the cient verification password
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function clientVerificationProcessAction(Request $request)
-    {
-
-    }
-
-    /**
-     * Display a verification page and the PayPal checkout button
-     *
-     * Using PayPal's SetExpressCheckout generate the token and
-     * prepare the link
-     *
-     * @param Request $request
-     */
-    public function verificationAction(Request $request)
-    {
-
-    }
-
-    public function verificationProcessAction(Request $request)
-    {
-        
     }
 
     private function validateSwimTime($time)
