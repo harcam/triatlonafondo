@@ -58,8 +58,6 @@ class RegistrationController extends Controller
         } elseif($data['category'] == "") {
             $error = 4;
         } elseif($data['swimTime'] != "" && !$this->validateSwimTime($data['swimTime'])) {
-            $a = explode(':', $data['swimTime']);
-            echo $a[0] . '--' . $a[1];
             $error = 5;
         }
 
@@ -122,7 +120,7 @@ class RegistrationController extends Controller
 
         if(count($timeArray) != 2) return false;
 
-        if(!is_integer($timeArray[0]) || !is_integer($timeArray[1])) return false;
+        if(!is_numeric($timeArray[0]) || !is_numeric($timeArray[1])) return false;
 
         if(intval($timeArray[1]) >= 60) return false;
 
