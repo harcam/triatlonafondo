@@ -85,15 +85,15 @@ a:hover, a:active, a:focus {
 }	
 .logros{
 	font-size: 0.7em;
-	background-color: #000099;
-	/*float:left;*/
-	/*width:350px;*/
+	color: #000099;
+	float:left;
+	width:300px;
 }
 .capacitacion{
 	font-size: 0.7em;
 	color: #009933;
-	/*float:right;*/
-	/*width:350px;*/
+	float:right;
+	width:300px;
 }
 .ttitle{
 	font-size: 1.2em;
