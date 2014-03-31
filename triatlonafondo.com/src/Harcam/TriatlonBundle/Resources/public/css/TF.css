@@ -86,13 +86,12 @@ a:hover, a:active, a:focus {
 .logros{
 	font-size: 0.7em;
 	color: #000099;
-	float:left;
 	width:300px;
 }
 .capacitacion{
 	font-size: 0.7em;
 	color: #009933;
-	float:right;
+	
 	width:300px;
 }
 .ttitle{
