@@ -68,7 +68,7 @@ a:hover, a:active, a:focus {
 	width: auto;
 	margin-top: 10px;
 	margin-right:5px;
-	margin-left:10px;
+	margin-left:185px;
 	margin-bottom:10px;
 	background-color: #FFFFFF;
 	
@@ -86,15 +86,15 @@ a:hover, a:active, a:focus {
 }
 .logros{
 	font-size: 0.7em;
-	color: #000099;
+	background-color: #000099;
 	/*float:left;*/
-	width:350px;
+	/*width:350px;*/
 }
 .capacitacion{
 	font-size: 0.7em;
 	color: #009933;
 	/*float:right;*/
-	width:350px;
+	/*width:350px;*/
 }
 .ttitle{
 	font-size: 1.2em;
