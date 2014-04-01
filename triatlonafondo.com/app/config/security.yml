@@ -21,7 +21,7 @@ security:
             pattern:    ^/login$
             anonymous:  ~
         secured_area:
-            pattern:    ^/
+            pattern:    ^/admin
             form_login:
                 login_path:  /login
                 check_path:  /login_check
