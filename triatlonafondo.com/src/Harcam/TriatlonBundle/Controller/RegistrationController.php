@@ -103,7 +103,7 @@ class RegistrationController extends Controller
             ->setTo($client->getEmail())
             ->setBody(
                 $this->renderView(
-                    'HarcamTriatlonBundle:Email:signup.txt.twig',
+                    'HarcamTriatlonBundle:Email:signup.html.twig',
                     array('client' => $client)
                 )
             )
