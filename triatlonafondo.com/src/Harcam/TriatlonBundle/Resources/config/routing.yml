@@ -1,13 +1,13 @@
 ## SECURITY
 login:
-    pattern:    /login
+    pattern:    /admin/login
     defaults:   { _controller: HarcamTriatlonBundle:Security:login }
 
 login_check:
-    pattern:    /login_check
+    pattern:    /admin/login_check
 
 logout:
-    pattern:    /logout
+    pattern:    /admin/logout
 
 ## Admin Controller
 harcam_triatlon_admin_client_list:
