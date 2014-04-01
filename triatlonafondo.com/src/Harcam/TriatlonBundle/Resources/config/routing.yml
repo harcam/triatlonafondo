@@ -22,7 +22,12 @@ harcam_triatlon_admin_client_delete:
     pattern:    /admin/client/{id}/delete
     defaults:   { _controller: HarcamTriatlonBundle:Admin:delete }
     methods:    [POST]
-
+    
+harcam_triatlon_admin_client_changepaymentstatus
+    pattern:    /admin/client/{id}/changepaymentstatus
+    defaults:   { _controller: HarcamTriatlonBundle:Admin: }
+    methods:    [POST]
+    
 ## Registration Controller
 harcam_triatlon_signup:
     pattern:    /signup
