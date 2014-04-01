@@ -31,6 +31,9 @@ security:
                 path:   /logout
                 target: /login
 
+        public_access:
+            pattern:    ^/
+            anonymous:  ~
+
     access_control:
         - { path: ^/admin/, roles: ROLE_ADMIN }
-        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
