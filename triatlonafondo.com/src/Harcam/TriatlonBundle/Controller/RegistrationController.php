@@ -105,9 +105,8 @@ class RegistrationController extends Controller
                 $this->renderView(
                     'HarcamTriatlonBundle:Email:signup.html.twig',
                     array('client' => $client)
-                )
-            )
-        ;
+                ), 'text/html');
+
         $this->get('mailer')->send($message);
 
         // Render as successful
