@@ -32,7 +32,6 @@ class PageController extends Controller
             case 'timetable':
                 $layout = 'HarcamTriatlonBundle:Page:timetable.html.twig';
                 break;
-           
             default:
                 $layout = 'HarcamTriatlonBundle:Page:home.html.twig';
                 break;
