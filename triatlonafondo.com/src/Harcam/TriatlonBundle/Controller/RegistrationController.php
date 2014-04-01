@@ -97,7 +97,18 @@ class RegistrationController extends Controller
         $em->flush();
 
         // Send the email
-
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Registro Tritanes')
+            ->setFrom( $this->container->getParameter('mailer_user') )
+            ->setTo($client->getEmail())
+            ->setBody(
+                $this->renderView(
+                    'HarcamTriatlonBundle:Email:signup.txt.twig',
+                    array('client' => $client)
+                )
+            )
+        ;
+        $this->get('mailer')->send($message);
 
         // Render as successful
         return $this->render('HarcamTriatlonBundle:Registration:confirm.html.twig',
