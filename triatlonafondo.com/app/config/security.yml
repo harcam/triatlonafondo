@@ -20,6 +20,7 @@ security:
         login_firewall:
             pattern:    ^/login$
             anonymous:  ~
+
         secured_area:
             pattern:    ^/admin
             form_login:
@@ -32,3 +33,4 @@ security:
 
     access_control:
         - { path: ^/admin/, roles: ROLE_ADMIN }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
