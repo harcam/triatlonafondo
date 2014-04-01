@@ -1,40 +1,41 @@
-Hola {{ client.name }}!
+<html>
+<body style="font-family:sans-serif">
 
-Recibimos tu solicitud de registro, para continuar
+<h2>Hola {{ client.name }}!</h2>
+
+<p>Recibimos tu solicitud de registro, para continuar es necesario que realices el pago mediante PayPal.</p>
 
 <h3>Tu Información de Registro</h3>
-Por favor revisa que tus datos sean correctos
-Nombre(s): {{ client.name }}
-Apellidos: {{ client.lastName }}
+<p>Por favor revisa que tus datos sean correctos
+    <ul style="list-style-type: none">
+        <li><strong>Nombre(s):</strong> {{ client.name }}</li>
+        <li><strong>Apellidos(s):</strong> {{ client.lastName }}</li>
+        <li><strong>Email:</strong> {{ client.email }}</li>
+        <li><strong>Categoría:</strong> {{ client.category }} - {{ client.getCategoryName }}</li>
+        <li><strong>Equipo:</strong> {% if client.team %}{{ client.team }}{% else %}<i>No especificado</i>{% endif %}</li>
+        <li><strong>Tiempo en 100m:</strong> {% if client.swimTime %}{{ client.swimTime }} segundos{% else %}<i>No especificado</i>{% endif %}</li>
+        <li><strong>Teléfono:</strong> {% if client.phoneNumber %}{{ client.phoneNumber }}{% else %}<i>No especificado</i>{% endif %}</li>
+    </ul>
+</p>
 
-<h3>Instrucciones</h3>
-Para el registro del triatlón Tritanes, sigue los siguientes pasos:
-1.- Llena los datos solicitados en el siguiente formulario. Recuerda que tu número de afiliación a la FMTRI (Federación Mexicana de Triatlón) consta de 11 dígitos.
-2.- Presiona “Registrar” y en poco tiempo recibirás un correo de confirmación con tus datos.
-3.- Realiza el pago en cualquier tienda OXXO, o directamente en bancos SANTANDER(Presencial o Transferencia) a la cuenta:
+<h3>Pago</h3>
+<p>Si ya realizaste el pago puedes hacer caso omiso a esta sección. Si aún no has realizado
+    el pago de inscripción puedes hacerlo mediante el siguiente botón de PayPal:<br/>
 
-	No Cuenta: 2000842671
-	CLABE: 014580200084262714
-	
-Es importante que guardes los datos de la transacción:
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="9S6TD9J4WCDXC">
+    <input type="image" src="https://www.paypalobjects.com/en_US/MX/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
 
-		a)Santander: Número de referencia de pago (tanto en depósito como en transferencia electrónica)
-		b)OXXO: Folio de Venta y Autorización
+</p>
 
-4.-Entra en la página de triatlonafondo.com a la sección Confirmar Pago, que se encuentra en Triatlón Tritanes del menú principal y proporciona los siguientes datos:
-		-Email usado en el registro
-		-Tipo de pago (Transferencia, Depósito, Pago en Oxxo)
-		-Número de autorización (Sólo para Oxxo)
-		-Número de Folio de venta (Sólo para Oxxo)
-		-Referencia de pago (Depósito o Transferencia)
+<p>En caso de no recibir respuesta y/o confirmación del pago en 48 horas, por favor escribe a <a href="mailto:tritanes@gmail.com">tritanes@gmail.com</a>
+para verificar el status de tu inscripción.</p>
 
-5.- En el transcurso de unos días recibirás un correo de confirmación con tu número de competidor.
+<p>Gracias,<br/>
+El equipo Tritanes.</p>
 
-
-
-Para continuar con el proceso haz click en el link
-<a href="{{ link }}" target="_blank">{{ link }}</a>
-
-
-Gracias,
-El equipo Tritanes.
+</body>
+</html>

@@ -11,7 +11,7 @@ logout:
 
 ## Admin Controller
 harcam_triatlon_admin_client_list:
-    pattern:    /admin/client
+    pattern:    /admin/
     defaults:   { _controller: HarcamTriatlonBundle:Admin:viewClients }
 
 harcam_triatlon_admin_client_view:
