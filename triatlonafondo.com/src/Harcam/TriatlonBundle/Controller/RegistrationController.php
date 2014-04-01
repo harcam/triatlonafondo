@@ -126,6 +126,11 @@ class RegistrationController extends Controller
 
     }
 
+    public function payPalSuccess(Request $request)
+    {
+
+    }
+
     private function validateSwimTime($time)
     {
         $timeArray = explode(':', trim($time));
