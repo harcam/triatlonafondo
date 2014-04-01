@@ -61,4 +61,31 @@ class AdminController extends Controller
         return $this->redirect($this->generateUrl('harcam_triatlon_admin_client_list'));
     }
 
+    public function changepaystatusAction(Request $request, $id, $hasPayed)
+    {
+        // Override the ID on the URL?
+        $id = $request->request->get('clientId');
+        // Query the server for the club's information and parameters
+        $client = $this->getDoctrine()->getRepository('HarcamTriatlonBundle:Client')->find($id);
+        
+        $hasPayed = $this->getDoctrine()->getRepository('HarcamTriatlonBundle:Client')->find($hasPayed);
+        
+        if ($hasPayed == "false"){
+            $paymentOverride = "true";
+        }
+        else {
+            $paymentOverride = "false";
+        }
+        if (!$client) {
+            throw $this->createNotFoundException(
+                'No client found for id ' . $id
+            );
+        }
+
+        // Change Payment Status
+        $paymentOverride = $this->set('hasPayed');
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('harcam_triatlon_admin_client_list'));
+    }
 }

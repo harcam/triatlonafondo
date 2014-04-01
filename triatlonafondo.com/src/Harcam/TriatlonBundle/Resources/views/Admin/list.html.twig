@@ -88,6 +88,15 @@
                         <input type="hidden" name="clientId" value="{{ client.clientId }}" />
                         <button class="btn btn-xs" type="submit" name="delete">Delete</button>
                     </form>
+                    
+                    
+                    {#Payment Override button#}
+
+                    <span class="label label-danger">No</span>
+                     {% endif %}
+                    <form action="{{ path('harcam_triatlon_admin_client_changepaymentstatus', {'id':client.clientId}) }}" method="post">
+                        <input type="hidden" name="clienthasPayed" value="{{ client.clientId  }}" />
+                        <button class="btn btn-xs" type="submit" name="delete">Payment Status</button>
                 </td>
             </tr>
         {% endfor %}
