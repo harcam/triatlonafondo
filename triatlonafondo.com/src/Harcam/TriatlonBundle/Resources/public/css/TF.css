@@ -143,3 +143,9 @@ a.email{
 a.sidebarLink:hover{
     color: #0E0E0E;
 }
+a.pageLink{
+    color: #0E0E0E;
+}
+a.pageLink:hover{
+    color: #0E0E0E;
+}
