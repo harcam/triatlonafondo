@@ -75,6 +75,13 @@
                     </a>
                 </td>
                 <td>{{ client.email }}</td>
+                <td>{{ client.phoneNumber }}</td>
+                <td>{% if client.hasPayed %}
+                    <span class="label label-success">Si</span>
+                {% else %}
+                    <span class="label label-danger">No</span>
+                {% endif %}
+                </td>
                 <td>
                     <form action="{{ path('harcam_triatlon_admin_client_delete', {'id':client.clientId}) }}" method="post">
                         <input type="hidden" name="clientId" value="{{ client.clientId }}" />
