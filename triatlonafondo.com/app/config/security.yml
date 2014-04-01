@@ -18,18 +18,18 @@ security:
             security: false
 
         login_firewall:
-            pattern:    ^/login$
+            pattern:    ^/admin/login$
             anonymous:  ~
 
         secured_area:
             pattern:    ^/admin
             form_login:
-                login_path:  /login
-                check_path:  /login_check
+                login_path:  /admin/login
+                check_path:  /admin/login_check
                 default_target_path: /admin
             logout:
-                path:   /logout
-                target: /login
+                path:   /admin/logout
+                target: /admin/login
 
         public_access:
             pattern:    ^/
