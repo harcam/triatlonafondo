@@ -26,11 +26,14 @@
         <p>Para acceder al sistema de pago, porfavor da click en el siguiente botón:</p>
         
         <p>El costo del triatlón se desglosa de la siguiente manera</p>
-        <table>
+        <table class="pure-table">
+            <thead>
             <tr>
                 <th>Concepto</th>
                 <th>Costo</th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
                 <td>Triatlón</td>
                 <td>$450 MXN</td>
@@ -39,7 +42,7 @@
                 <td>Seguro y comisión de pago con tarjeta</tr>
                 <td>$80 MXN</td>
             </tr>
-            
+            </tbody>
         </table>
         {# PayPal Payment Forms#}    
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
