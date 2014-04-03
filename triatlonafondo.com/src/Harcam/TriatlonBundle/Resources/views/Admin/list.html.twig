@@ -56,6 +56,7 @@
     <table class="table">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Category</th>
             <th>Full Name</th>
             <th>Team</th>
@@ -68,6 +69,7 @@
         <tbody>
         {% for client in clients %}
             <tr>
+                <td>{{client.id}}</td>
                 <td>{{ client.getCategoryName() }}</td>
                 <td>
                     <a href="{{ path('harcam_triatlon_admin_client_view', {'id':client.clientId}) }}">
