@@ -91,7 +91,9 @@
                 <td>
                     <form action="{{ path('harcam_triatlon_admin_client_delete', {'id':client.clientId}) }}" method="post">
                         <input type="hidden" name="clientId" value="{{ client.clientId }}" />
-                        <button class="btn btn-xs" type="submit" name="delete">Delete</button>
+                        <button class="btn btn-xs" type="submit" name="delete"
+                                onclick="return confirm('Are you sure you want to delete this client ({{ client.getFullName }})?');"
+                                >Delete</button>
                     </form>
                     <br/>
 
