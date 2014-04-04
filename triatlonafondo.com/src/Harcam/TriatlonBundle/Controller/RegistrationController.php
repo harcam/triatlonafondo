@@ -40,6 +40,7 @@ class RegistrationController extends Controller
         $data = array();
         $data['name'] = $request->request->get('name');
         $data['lastName'] = $request->request->get('lastName');
+        $data['birthDate'] = $request->request->get('birthDate');
         $data['email'] = $request->request->get('email');
         $data['category'] = $request->request->get('category');
         $data['team'] = $request->request->get('team');
@@ -86,6 +87,7 @@ class RegistrationController extends Controller
         $client = new Client();
         $client->setName($data['name']);
         $client->setLastName($data['lastName']);
+        $client->setBirthDate($data['birthDate']);
         $client->setEmail($data['email']);
         $client->setCategory($data['category']);
         $client->setTeam($data['team']);
