@@ -219,7 +219,7 @@
             <div class="col-md-6">
                 {% if mode == 'edit' %}
                     <input type="text" class="form-control" id="swimTime" name="swimTime"
-                           placeholder="swimTime" value="{{ client.swimTime }}">
+                           placeholder="mm:ss" value="{{ client.swimTime }}">
                 {% else %}
                     <p class="form-control-static">{{ client.swimTime }}</p>
                 {% endif %}
@@ -237,7 +237,7 @@
             <div class="col-md-6">
                 {% if mode == 'edit' %}
                     <input type="text" class="form-control" id="hasPayed" name="hasPayed"
-                           placeholder="hasPayed" value="{{ client.hasPayed }}">
+                           placeholder="" value="{{ client.hasPayed }}">
                 {% else %}
                     <p class="form-control-static">{{ client.hasPayed }}</p>
                 {% endif %}
@@ -255,7 +255,7 @@
             <div class="col-md-6">
                 {% if mode == 'edit' %}
                     <input type="text" class="form-control" id="birthDate" name="birthDate"
-                           placeholder="birthDate" value="{{ client.birthDate }}">
+                           placeholder="dd/mm/yyyy" value="{{ client.birthDate }}">
                 {% else %}
                     <p class="form-control-static">{{ client.birthDate }}</p>
                 {% endif %}
