@@ -92,10 +92,11 @@
                     </form>
                     <br/>
                     
-                    {#Payment Override button
+                    Payment Override button
                     <form action="{{ path('harcam_triatlon_admin_client_changepaystatus', {'id':client.clientId}) }}" method="post">
                         <input type="hidden" name="changepaystatus" value="{{ client.clientId  }}" />
-                        <button class="btn btn-xs" type="submit" name="changepaystatus">Register Payment</button>#}
+                        <button class="btn btn-xs" type="submit" name="changepaystatus">Register Payment</button>
+                    </form>
                 </td>
             </tr>
         {% endfor %}
