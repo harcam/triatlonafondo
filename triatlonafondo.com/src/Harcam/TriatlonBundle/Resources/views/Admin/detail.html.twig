@@ -60,23 +60,167 @@
         <h3>General Information</h3>
 
         <div class="form-group">
-            <label for="peakControlMaxAllowed" class="col-lg-2 control-label">Max. Allowed Increase</label>
+            <label for="name" class="col-lg-2 control-label">Name</label>
 
             <div class="col-lg-6">
                 {% if mode == 'edit' %}
-                    <input type="text" class="form-control" id="peakControlMaxAllowed" name="peakControlMaxAllowed"
-                           placeholder="peakControlMaxAllowed" value="{{ campaign.peakControlMaxAllowed }}">
+                    <input type="text" class="form-control" id="name" name="name"
+                           placeholder="name" value="{{ client.name }}">
                 {% else %}
-                    <p class="form-control-static">{{ campaign.peakControlMaxAllowed }}</p>
+                    <p class="form-control-static">{{ client.name }}</p>
                 {% endif %}
             </div>
             <div class="col-lg-4">
                 <p class="form-control-static">
-                    <small>% of allowed increase in conversions</small>
+                    <small>Client's first name</small>
+                </p>
+            </div>
+        </div>
+            
+        <div class="form-group">
+            <label for="lastName" class="col-lg-2 control-label">Last Name</label>
+
+            <div class="col-lg-6">
+                {% if mode == 'edit' %}
+                    <input type="text" class="form-control" id="lastName" name="lastName"
+                           placeholder="lastName" value="{{ client.lastName }}">
+                {% else %}
+                    <p class="form-control-static">{{ client.lastName }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <p class="form-control-static">
+                    <small>Client's first name</small>
+                </p>
+            </div>
+        </div>
+            
+        <div class="form-group">
+            <label for="category" class="col-lg-2 control-label">Category</label>
+
+            <div class="col-lg-6">
+                {% if mode == 'edit' %}
+                    <input type="text" class="form-control" id="category" name="category"
+                           placeholder="category" value="{{ client.category }}">
+                {% else %}
+                    <p class="form-control-static">{{ client.category }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <p class="form-control-static">
+                    <small>Client's first name</small>
                 </p>
             </div>
         </div>
 
+        <div class="form-group">
+            <label for="team" class="col-lg-2 control-label">Team</label>
+
+            <div class="col-lg-6">
+                {% if mode == 'edit' %}
+                    <input type="text" class="form-control" id="team" name="team"
+                           placeholder="team" value="{{ client.team }}">
+                {% else %}
+                    <p class="form-control-static">{{ client.team }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <p class="form-control-static">
+                    <small>Client's first name</small>
+                </p>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="phoneNumber" class="col-lg-2 control-label">Phone Number</label>
+
+            <div class="col-lg-6">
+                {% if mode == 'edit' %}
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
+                           placeholder="phoneNumber" value="{{ client.phoneNumber }}">
+                {% else %}
+                    <p class="form-control-static">{{ client.phoneNumber }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <p class="form-control-static">
+                    <small>Client's first name</small>
+                </p>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="email" class="col-lg-2 control-label">Email</label>
+
+            <div class="col-lg-6">
+                {% if mode == 'edit' %}
+                    <input type="text" class="form-control" id="email" name="email"
+                           placeholder="email" value="{{ client.email }}">
+                {% else %}
+                    <p class="form-control-static">{{ client.email }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <p class="form-control-static">
+                    <small>Client's first name</small>
+                </p>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="swimTime" class="col-lg-2 control-label">Swim Time</label>
+
+            <div class="col-lg-6">
+                {% if mode == 'edit' %}
+                    <input type="text" class="form-control" id="swimTime" name="swimTime"
+                           placeholder="swimTime" value="{{ client.swimTime }}">
+                {% else %}
+                    <p class="form-control-static">{{ client.swimTime }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <p class="form-control-static">
+                    <small>Client's first name</small>
+                </p>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="hasPayed" class="col-lg-2 control-label">Has Payed</label>
+
+            <div class="col-lg-6">
+                {% if mode == 'edit' %}
+                    <input type="text" class="form-control" id="hasPayed" name="hasPayed"
+                           placeholder="hasPayed" value="{{ client.hasPayed }}">
+                {% else %}
+                    <p class="form-control-static">{{ client.hasPayed }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <p class="form-control-static">
+                    <small>Client's first name</small>
+                </p>
+            </div>
+        </div>
+            
+        <div class="form-group">
+            <label for="birthDate" class="col-lg-2 control-label">BirthDate</label>
+
+            <div class="col-lg-6">
+                {% if mode == 'edit' %}
+                    <input type="text" class="form-control" id="birthDate" name="birthDate"
+                           placeholder="birthDate" value="{{ client.birthDate }}">
+                {% else %}
+                    <p class="form-control-static">{{ client.birthDate }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <p class="form-control-static">
+                    <small>Client's first name</small>
+                </p>
+            </div>
+        </div>
+        
         <h3>Payment Information</h3>
 
         {% if mode == 'edit' %}
