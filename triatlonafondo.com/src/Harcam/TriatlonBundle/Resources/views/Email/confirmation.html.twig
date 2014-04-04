@@ -1,3 +1,29 @@
-Hemos confirmado la referencia de tu pago.
+<html>
+<body style="font-family:sans-serif">
 
-Gracias!
+<h2>Hola {{ client.name }}!</h2>
+
+<p>Hemos confirmado la referencia de tu pago!</p>
+
+<h3>Tu Información de Registro</h3>
+<p>Por favor revisa que tus datos sean correctos
+<ul style="list-style-type: none">
+    <li><strong>Nombre(s):</strong> {{ client.name }}</li>
+    <li><strong>Apellidos(s):</strong> {{ client.lastName }}</li>
+    <li><strong>Fecha de Nacimiento:</strong> {{ client.birthDate }}</li>
+    <li><strong>Email:</strong> {{ client.email }}</li>
+    <li><strong>Categoría:</strong> {{ client.category }} - {{ client.getCategoryName }}</li>
+    <li><strong>Equipo:</strong> {% if client.team %}{{ client.team }}{% else %}<i>No especificado</i>{% endif %}</li>
+    <li><strong>Tiempo en 100m:</strong> {% if client.swimTime %}{{ client.swimTime }} segundos{% else %}<i>No especificado</i>{% endif %}</li>
+    <li><strong>Teléfono:</strong> {% if client.phoneNumber %}{{ client.phoneNumber }}{% else %}<i>No especificado</i>{% endif %}</li>
+</ul>
+</p>
+
+<br/>
+<p>En caso de tener cualquier duda sobre el proceso de registro, por favor escribe a <a href="mailto:tritanes@gmail.com">tritanes@gmail.com</a>.</p>
+
+<p>Gracias,<br/>
+    El equipo Tritanes.</p>
+
+</body>
+</html>

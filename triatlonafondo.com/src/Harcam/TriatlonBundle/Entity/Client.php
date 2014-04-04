@@ -113,7 +113,7 @@ class Client {
         $categories = array(
             'IF' => 'Femenil 14 a 15 años',
             'JF' => 'Femenil 16 a 19 años',
-            'R' => 'Femenil 20 a 24 años',
+            'N' => 'Femenil 20 a 24 años',
             'O' => 'Femenil 25 a 29 años',
             'P' => 'Femenil 30 a 34 años',
             'Q' => 'Femenil 35 a 39 años',

@@ -103,8 +103,53 @@
                 {% if mode == 'edit' %}
                     <input type="text" class="form-control" id="category" name="category"
                            placeholder="category" value="{{ client.category }}">
+                    <select id="category" name="category">
+                        <option value="">- Selecciona una categoría -</option>
+                        <option value="IF" {% if client.category == 'IF' %}selected{% endif %}
+                                >Femenil 14 a 15 años</option>
+                        <option value="JF" {% if client.category == 'JF' %}selected{% endif %}
+                                >Femenil 16 a 19 años</option>
+                        <option value="N" {% if client.category == 'N' %}selected{% endif %}
+                                >Femenil 20 a 24 años</option>
+                        <option value="O" {% if client.category == 'O' %}selected{% endif %}
+                                >Femenil 25 a 29 años</option>
+                        <option value="P" {% if client.category == 'P' %}selected{% endif %}
+                                >Femenil 30 a 34 años</option>
+                        <option value="Q" {% if client.category == 'Q' %}selected{% endif %}
+                                >Femenil 35 a 39 años</option>
+                        <option value="R" {% if client.category == 'R' %}selected{% endif %}
+                                >Femenil 40 a 44 años</option>
+                        <option value="S" {% if client.category == 'S' %}selected{% endif %}
+                                >Femenil 45 a 49 años</option>
+                        <option value="T" {% if client.category == 'T' %}selected{% endif %}
+                                >Femenil 50 a 54 años</option>
+                        <option value="V" {% if client.category == 'V' %}selected{% endif %}
+                                >Femenil 55 a 59 años</option>
+                        <option value="IC" {% if client.category == 'IC' %}selected{% endif %}
+                                >Varonil 14 a 15 años</option>
+                        <option value="JV" {% if client.category == 'JV' %}selected{% endif %}
+                                >Varonil 16 a 19 años</option>
+                        <option value="A" {% if client.category == 'A' %}selected{% endif %}
+                                >Varonil 20 a 24 años</option>
+                        <option value="B" {% if client.category == 'B' %}selected{% endif %}
+                                >Varonil 25 a 29 años</option>
+                        <option value="C" {% if client.category == 'C' %}selected{% endif %}
+                                >Varonil 30 a 34 años</option>
+                        <option value="D" {% if client.category == 'D' %}selected{% endif %}
+                                >Varonil 35 a 39 años</option>
+                        <option value="E" {% if client.category == 'E' %}selected{% endif %}
+                                >Varonil 40 a 44 años</option>
+                        <option value="F" {% if client.category == 'F' %}selected{% endif %}
+                                >Varonil 45 a 49 años</option>
+                        <option value="G" {% if client.category == 'G' %}selected{% endif %}
+                                >Varonil 50 a 55 años</option>
+                        <option value="H" {% if client.category == 'H' %}selected{% endif %}
+                                >Varonil 55 a 59</option>
+                        <option value="I" {% if client.category == 'H' %}selected{% endif %}
+                                >Varonil 60 y mayores</option>
+                    </select>
                 {% else %}
-                    <p class="form-control-static">{{ client.category }}</p>
+                    <p class="form-control-static">{{ client.category }} - {{ client.getCategoryName() }}</p>
                 {% endif %}
             </div>
             <div class="col-md-4">
@@ -158,7 +203,8 @@
                     <input type="text" class="form-control" id="email" name="email"
                            placeholder="email" value="{{ client.email }}">
                 {% else %}
-                    <p class="form-control-static">{{ client.email }}</p>
+                    <p class="form-control-static">{{ client.email }}
+                        <a href="mailto:{{ client.email }}">[send email]</a></p>
                 {% endif %}
             </div>
             <div class="col-md-4">

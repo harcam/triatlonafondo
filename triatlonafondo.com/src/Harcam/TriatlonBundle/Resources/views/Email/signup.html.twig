@@ -10,6 +10,7 @@
     <ul style="list-style-type: none">
         <li><strong>Nombre(s):</strong> {{ client.name }}</li>
         <li><strong>Apellidos(s):</strong> {{ client.lastName }}</li>
+        <li><strong>Fecha de Nacimiento:</strong> {{ client.birthDate }}</li>
         <li><strong>Email:</strong> {{ client.email }}</li>
         <li><strong>Categoría:</strong> {{ client.category }} - {{ client.getCategoryName }}</li>
         <li><strong>Equipo:</strong> {% if client.team %}{{ client.team }}{% else %}<i>No especificado</i>{% endif %}</li>
