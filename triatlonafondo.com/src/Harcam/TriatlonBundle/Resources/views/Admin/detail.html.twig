@@ -53,8 +53,9 @@
 
 <div class="container">
 
-    <h1>{{ client.clientId }}: {{ client.getFullName() }}</h1>
-    <h4><a href="{{ path('harcam_triatlon_admin_client_edit', {'id': client.clientId}) }}"></a>[edit]</h4>
+    <h1>{{ client.clientId }}: {{ client.getFullName() }}
+        <small><a href="{{ path('harcam_triatlon_admin_client_edit', {'id': client.clientId}) }}">[edit]</a></small>
+    </h1>
 
     <form class="form-horizontal" method="POST"
           action="{{ path('harcam_triatlon_admin_client_edit_process', {'id': client.clientId}) }}">
@@ -204,7 +205,7 @@
                            placeholder="email" value="{{ client.email }}">
                 {% else %}
                     <p class="form-control-static">{{ client.email }}
-                        <a href="mailto:{{ client.email }}">[send email]</a></p>
+                        &nbsp;&nbsp;<a href="mailto:{{ client.email }}">[send email]</a></p>
                 {% endif %}
             </div>
             <div class="col-md-4">
