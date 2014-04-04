@@ -72,8 +72,40 @@ class AdminController extends Controller
 
         return $this->render('HarcamTriatlonBundle:Admin:detail.html.twig',
             array('client' => $client, 'mode' => 'view'
-            ));
-        
+        ));
+    }
+
+    public function editAction($id)
+    {
+        /* @var Client $client */
+        $client = $this->getDoctrine()->getRepository('HarcamTriatlonBundle:Client')->find($id);
+
+        if(!$client)
+        {
+            throw $this->createNotFoundException(
+                'No client found for id: ' . $id
+            );
+        }
+
+        return $this->render('HarcamTriatlonBundle:Admin:detail.html.twig',
+            array('client' => $client, 'mode' => 'edit'
+        ));
+    }
+
+    public function editProcessAction(Request $request, $id)
+    {
+        /* @var Client $client */
+        $client = $this->getDoctrine()->getRepository('HarcamTriatlonBundle:Client')->find($id);
+
+        if(!$client)
+        {
+            throw $this->createNotFoundException(
+                'No client found for id: ' . $id
+            );
+        }
+
+        $client->setName( $request->request->get('name') );
+
     }
 
     public function registerPaymentAction(Request $request, $id, $hasPayed)
