@@ -60,6 +60,12 @@ class AdminController extends Controller
 
         return $this->redirect($this->generateUrl('harcam_triatlon_admin_client_list'));
     }
+    
+    public function viewAction(Request $request)
+    {
+        
+        
+    }
 
     public function changepaystatusAction(Request $request, $id, $hasPayed)
     {
