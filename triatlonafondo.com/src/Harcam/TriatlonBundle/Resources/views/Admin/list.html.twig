@@ -40,6 +40,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ path('harcam_triatlon_admin_client_list') }}">All</a></li>
                 <li><a href="{{ path('harcam_triatlon_admin_client_filter') }}">Payed</a></li>
+                <li>Total Clients: {{ clients|length }}</li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ path('logout') }}">
