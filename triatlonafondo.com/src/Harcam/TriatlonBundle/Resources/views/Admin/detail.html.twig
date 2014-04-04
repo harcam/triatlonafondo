@@ -54,9 +54,10 @@
 <div class="container">
 
     <h1>{{ client.clientId }}: {{ client.getFullName() }}</h1>
+    <h4><a href="{{ path('harcam_triatlon_admin_client_edit', {'id': client.clientId}) }}"></a>[edit]</h4>
 
     <form class="form-horizontal" method="POST"
-          action="{{ path('harcam_triatlon_admin_client_edit_process', {'id':client.clientId}) }}">
+          action="{{ path('harcam_triatlon_admin_client_edit_process', {'id': client.clientId}) }}">
         <h3>General Information</h3>
 
         <div class="form-group">
