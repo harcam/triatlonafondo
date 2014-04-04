@@ -37,7 +37,7 @@ class Client {
     protected $lastName;
 
     /**
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $birthDate;
 
