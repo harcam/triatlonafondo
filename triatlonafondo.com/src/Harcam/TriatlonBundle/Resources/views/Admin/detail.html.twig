@@ -57,6 +57,10 @@
         <small><a href="{{ path('harcam_triatlon_admin_client_edit', {'id': client.clientId}) }}">[edit]</a></small>
     </h1>
 
+    {% if msg is defined %}
+    <h4><strong>{{ msg }}</strong></h4>
+    {% endif %}
+
     <form class="form-horizontal" method="POST"
           action="{{ path('harcam_triatlon_admin_client_edit_process', {'id': client.clientId}) }}">
         <h3>General Information</h3>
@@ -227,24 +231,6 @@
             <div class="col-md-4">
                 <p class="form-control-static">
                     <small>Client's swim time</small>
-                </p>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label for="hasPayed" class="col-md-2 control-label">Has Payed</label>
-
-            <div class="col-md-6">
-                {% if mode == 'edit' %}
-                    <input type="text" class="form-control" id="hasPayed" name="hasPayed"
-                           placeholder="" value="{{ client.hasPayed }}">
-                {% else %}
-                    <p class="form-control-static">{{ client.hasPayed }}</p>
-                {% endif %}
-            </div>
-            <div class="col-md-4">
-                <p class="form-control-static">
-                    <small>Client's payment status</small>
                 </p>
             </div>
         </div>

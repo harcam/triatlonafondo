@@ -94,6 +94,8 @@ class AdminController extends Controller
 
     public function editProcessAction(Request $request, $id)
     {
+        $em = $this->getDoctrine()->getManager();
+
         /* @var Client $client */
         $client = $this->getDoctrine()->getRepository('HarcamTriatlonBundle:Client')->find($id);
 
@@ -111,8 +113,16 @@ class AdminController extends Controller
         $client->setPhoneNumber( $request->request->get('phoneNumber') );
         $client->setEmail( $request->request->get('email') );
         $client->setSwimTime( $request->request->get('swimTime') );
-        $client->setHasPayed( $request->request->get('hasPayed') );
         $client->setBirthDate( $request->request->get('birthDate') );
+
+        $em->persist($client);
+        $em->flush($client);
+
+        $msg = "Updated succesfully!";
+
+        return $this->render('HarcamTriatlonBundle:Admin:detail.html.twig',
+            array('client' => $client, 'mode' => 'view', 'msg' => $msg
+            ));
 
     }
 
