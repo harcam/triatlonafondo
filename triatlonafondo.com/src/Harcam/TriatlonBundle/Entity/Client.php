@@ -72,6 +72,11 @@ class Client {
     protected $hasPayed = false;
 
     /**
+     * @ORM\Column(type="string", nullable=true, unique=true)
+     */
+    protected $paymentReference;
+
+    /**
      * @ORM\Column(type="boolean", nullable=false)
      */
     protected $hasConfirmed = false;
@@ -395,6 +400,27 @@ class Client {
     {
         return $this->birthDate;
     }
+
+    /**
+     * @param mixed $paymentReference
+     * @return Client
+     */
+    public function setPaymentReference($paymentReference)
+    {
+        $this->paymentReference = $paymentReference;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPaymentReference()
+    {
+        return $this->paymentReference;
+    }
+
+
 
 
 }

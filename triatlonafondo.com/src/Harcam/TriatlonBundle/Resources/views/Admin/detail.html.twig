@@ -252,8 +252,61 @@
                 </p>
             </div>
         </div>
-        
+
+        <hr>
+
+        {% if mode == 'view' %}
+        </form>
+
+        <form class="form-horizontal" method="POST"
+          action="{{ path('harcam_triatlon_admin_client_register_payment', {'id': client.clientId}) }}">
+
         <h3>Payment Information</h3>
+
+        <div class="form-group">
+            <label for="birthDate" class="col-md-2 control-label">Has Payed?</label>
+
+            <div class="col-md-6">
+                {% if client.hasPayed %}
+                    <span class="label label-success">Yes</span> [Reference: {{ client.paymentReference }}]
+                {% else %}
+                    <span class="label label-danger">No</span>
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                <p class="form-control-static">
+                    <small>Has client payed?</small>
+                </p>
+            </div>
+        </div>
+
+            {% if not client.hasPayed %}
+            <div class="form-group">
+                <label for="birthDate" class="col-md-2 control-label">Payment Reference</label>
+
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="paymentReference" name="paymentReference"
+                         placeholder="Payment Reference">
+                </div>
+                <div class="col-md-4">
+                    <p class="form-control-static">
+                        <small>Client's PayPal Reference Number</small>
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="hidden" name="clientId" value="{{ client.clientId }}"/>
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-primary"
+                            onclick="return confirm('Are you sure you want to register this payment reference?');">
+                        Register Payment</button>
+                </div>
+            </div>
+            {% endif %}
+
+            <hr>
+        {% endif %}
 
         {% if mode == 'edit' %}
             <div class="form-group">

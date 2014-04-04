@@ -80,7 +80,7 @@
                 <td>{{ client.email }}</td>
                 <td>{{ client.phoneNumber }}</td>
                 <td>{% if client.hasPayed %}
-                    <span class="label label-success">Si</span>
+                    <span class="label label-success">Yes</span> {{ client.paymentReference }}
                 {% else %}
                     <span class="label label-danger">No</span>
                 {% endif %}
