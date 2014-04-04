@@ -54,7 +54,7 @@
 <div class="container">
 
     <h1>{{ client.clientId }}: {{ client.getFullName() }}
-        <small><a href="{{ path('harcam_triatlon_admin_client_edit', {'id': client.clientId}) }}">[edit]</a></small>
+        <small><a href="{{ path('harcam_triatlon_admin_client_edit_process', {'id': client.clientId}) }}">[edit]</a></small>
     </h1>
 
     {% if msg is defined %}
