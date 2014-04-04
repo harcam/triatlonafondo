@@ -10,21 +10,6 @@ use Harcam\TriatlonBundle\Entity\Client;
 
 class AdminController extends Controller
 {
-    public function loginAction()
-    {
-
-    }
-
-    public function loginProcessAction()
-    {
-
-    }
-
-    public function logout()
-    {
-
-    }
-
     public function viewClientsAction()
     {
         // Query the server for the device's information and parameters
@@ -61,9 +46,21 @@ class AdminController extends Controller
         return $this->redirect($this->generateUrl('harcam_triatlon_admin_client_list'));
     }
     
-    public function viewAction(Request $request)
+    public function viewAction(Request $request, $id)
     {
-        
+        /* @var Client $client */
+        $client = $this->getDoctrine()->getRepository('HarcamTriatlonBundle:Client')->find($id);
+
+        if(!$client)
+        {
+            throw $this->createNotFoundException(
+                'No client found for id: ' . $id
+            );
+        }
+
+        return $this->render('HarcamTriatlonBundle:Admin:detail.html.twig',
+            array('client' => $client
+            ));
         
     }
 

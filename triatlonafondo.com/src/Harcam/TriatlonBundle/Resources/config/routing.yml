@@ -18,6 +18,14 @@ harcam_triatlon_admin_client_view:
     pattern:    /admin/client/{id}
     defaults:   { _controller: HarcamTriatlonBundle:Admin:view }
 
+harcam_triatlon_admin_client_edit:
+    pattern:    /admin/client/{id}/edit
+    defaults:   { _controller: HarcamTriatlonBundle:Admin:edit }
+
+harcam_triatlon_admin_client_edit_process:
+    pattern:    /admin/client/{id}/edit
+    defaults:   { _controller: HarcamTriatlonBundle:Admin:editProcess }
+
 harcam_triatlon_admin_client_delete:
     pattern:    /admin/client/{id}/delete
     defaults:   { _controller: HarcamTriatlonBundle:Admin:delete }

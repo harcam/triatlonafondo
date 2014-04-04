@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Administrador de Registro</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar-static-top.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!-- Static navbar -->
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Registro Tritanes</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Todos</a></li>
+                <li><a href="#about">Pagados</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('logout') }}">
+                        <span class="glyphicon glyphicon-off"></span>
+                    </a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+
+
+<div class="container">
+
+    <h1>{{ client.clientId }}: {{ client.getFullName() }}</h1>
+
+    <form class="form-horizontal" method="POST"
+          action="{{ path('harcam_triatlon_admin_client_edit_process', {'id':client.clientId}) }}">
+        <h3>General Information</h3>
+
+        <div class="form-group">
+            <label for="peakControlMaxAllowed" class="col-lg-2 control-label">Max. Allowed Increase</label>
+
+            <div class="col-lg-6">
+                {% if mode == 'edit' %}
+                    <input type="text" class="form-control" id="peakControlMaxAllowed" name="peakControlMaxAllowed"
+                           placeholder="peakControlMaxAllowed" value="{{ campaign.peakControlMaxAllowed }}">
+                {% else %}
+                    <p class="form-control-static">{{ campaign.peakControlMaxAllowed }}</p>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+                <p class="form-control-static">
+                    <small>% of allowed increase in conversions</small>
+                </p>
+            </div>
+        </div>
+
+        <h3>Payment Information</h3>
+
+        {% if mode == 'edit' %}
+            <div class="form-group">
+                <input type="hidden" name="clientId" value="{{ client.clientId }}"/>
+
+                <div class="col-lg-offset-2 col-lg-10">
+                    <button type="submit" class="btn btn-primary">Save changes!</button>
+                </div>
+            </div>
+        {% endif %}
+    </form>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Full Name</th>
+            <th>Team</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Has Payed?</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{client.clientid}}</td>
+                <td>{{ client.getCategoryName() }}</td>
+                <td>
+                    <a href="{{ path('harcam_triatlon_admin_client_view', {'id':client.clientId}) }}">
+                        {{ client.getFullName() }}
+                    </a>
+                </td>
+                <td>{{ client.team }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.phoneNumber }}</td>
+                <td>{% if client.hasPayed %}
+                    <span class="label label-success">Si</span>
+                {% else %}
+                    <span class="label label-danger">No</span>
+                {% endif %}
+                </td>
+                <td>
+                    <form action="{{ path('harcam_triatlon_admin_client_delete', {'id':client.clientId}) }}" method="post">
+                        <input type="hidden" name="clientId" value="{{ client.clientId }}" />
+                        <button class="btn btn-xs" type="submit" name="delete">Delete</button>
+                    </form>
+                    <br/>
+                    
+                    Payment Override button
+                    <form action="{{ path('harcam_triatlon_admin_client_changepaystatus', {'id':client.clientId}) }}" method="post">
+                        <input type="hidden" name="changepaystatus" value="{{ client.clientId  }}" />
+                        <button class="btn btn-xs" type="submit" name="changepaystatus">Register Payment</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div> <!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
