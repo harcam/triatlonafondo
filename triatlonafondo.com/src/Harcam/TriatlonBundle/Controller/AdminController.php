@@ -20,8 +20,20 @@ class AdminController extends Controller
             ));
     }
 
-    public function filterClientsAction()
+    public function filterClientsAction($mode)
     {
+        $mode = 'payed';
+
+        # TOTAL ACTIVE USERS
+        $repository = $this->getDoctrine()->getRepository('HarcamTriatlonBundle:Client');
+        $query = $repository->createQueryBuilder('c')
+            ->where('c.hasPayed = 1')
+            ->getQuery();
+        $clients = $query->getResult();
+
+        return $this->render('HarcamTriatlonBundle:Admin:list.html.twig',
+            array('clients' => $clients
+            ));
 
     }
 

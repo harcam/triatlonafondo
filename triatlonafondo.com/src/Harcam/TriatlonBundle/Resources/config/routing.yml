@@ -14,6 +14,10 @@ harcam_triatlon_admin_client_list:
     pattern:    /admin/
     defaults:   { _controller: HarcamTriatlonBundle:Admin:viewClients }
 
+harcam_triatlon_admin_client_filter:
+    pattern:    /admin/filter/{mode}
+    defaults:   { _controller: HarcamTriatlonBundle:Admin:filterClients, mode: null }
+
 harcam_triatlon_admin_client_view:
     pattern:    /admin/client/{id}
     defaults:   { _controller: HarcamTriatlonBundle:Admin:view }
