@@ -58,7 +58,7 @@
     </h1>
 
     {% if msg is defined %}
-    <h4><strong>{{ msg }}</strong></h4>
+    <div class="alert alert-success">{{ msg|raw }}</div>
     {% endif %}
 
     <form class="form-horizontal" method="POST"

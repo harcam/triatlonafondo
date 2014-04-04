@@ -163,7 +163,7 @@ class AdminController extends Controller
         $this->get('mailer')->send($message);
 
 
-        $msg = "Registered payment [" . $request->request->get('paymentReference') . "] succesfully!";
+        $msg = "Registered PayPal payment <strong>" . $request->request->get('paymentReference') . "</strong> succesfully!";
 
         return $this->render('HarcamTriatlonBundle:Admin:detail.html.twig',
             array('client' => $client, 'mode' => 'view', 'msg' => $msg
