@@ -22,13 +22,21 @@ class AdminController extends Controller
 
     public function filterClientsAction($mode)
     {
-        $mode = 'payed';
+        if($mode == 'unpaid') $paid = false;
+        else $paid = true;
 
         # TOTAL ACTIVE USERS
         $repository = $this->getDoctrine()->getRepository('HarcamTriatlonBundle:Client');
-        $query = $repository->createQueryBuilder('c')
-            ->where('c.hasPayed = 1')
-            ->getQuery();
+        $qb = $repository->createQueryBuilder('c');
+
+        if($paid)
+        {
+            $qb->where('c.hasPayed = 1');
+        } else {
+            $qb->where('c.hasPayed = 0');
+        }
+
+        $query = $qb->getQuery();
         $clients = $query->getResult();
 
         return $this->render('HarcamTriatlonBundle:Admin:list.html.twig',

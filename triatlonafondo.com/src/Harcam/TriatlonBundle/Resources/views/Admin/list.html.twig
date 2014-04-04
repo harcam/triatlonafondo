@@ -39,7 +39,8 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="{{ path('harcam_triatlon_admin_client_list') }}">All</a></li>
-                <li><a href="{{ path('harcam_triatlon_admin_client_filter') }}">Payed</a></li>
+                <li><a href="{{ path('harcam_triatlon_admin_client_filter', {"mode": 'paid'}) }}">Paid</a></li>
+                <li><a href="{{ path('harcam_triatlon_admin_client_filter', {"mode": 'unpaid'}) }}">Unpaid</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ path('logout') }}">
@@ -64,7 +65,7 @@
             <th>Team</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Has Payed?</th>
+            <th>Has Paid?</th>
             <th>Actions</th>
         </tr>
         </thead>
