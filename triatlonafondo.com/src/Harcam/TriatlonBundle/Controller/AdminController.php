@@ -71,12 +71,12 @@ class AdminController extends Controller
         }
 
         return $this->render('HarcamTriatlonBundle:Admin:detail.html.twig',
-            array('client' => $client
+            array('client' => $client, 'mode' => 'view'
             ));
         
     }
 
-    public function changepaystatusAction(Request $request, $id, $hasPayed)
+    public function registerPaymentAction(Request $request, $id, $hasPayed)
     {
         // Override the ID on the URL?
         $id = $request->request->get('clientId');

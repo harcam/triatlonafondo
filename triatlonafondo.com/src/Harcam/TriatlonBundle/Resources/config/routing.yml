@@ -35,9 +35,9 @@ harcam_triatlon_admin_client_delete:
     defaults:   { _controller: HarcamTriatlonBundle:Admin:delete }
     methods:    [POST]
     
-harcam_triatlon_admin_client_changepaystatus:
-    pattern:    /admin/client/{id}/changepaytstatus
-    defaults:   { _controller: HarcamTriatlonBundle:Admin: }
+harcam_triatlon_admin_client_register_payment:
+    pattern:    /admin/client/{id}/pay
+    defaults:   { _controller: HarcamTriatlonBundle:Admin:registerPayment }
     methods:    [POST]
     
 ## Registration Controller
