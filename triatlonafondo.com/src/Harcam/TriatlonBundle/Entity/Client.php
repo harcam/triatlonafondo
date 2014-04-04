@@ -39,6 +39,11 @@ class Client {
     /**
      * @ORM\Column(type="string", nullable=false)
      */
+    protected $birthDate;
+
+    /**
+     * @ORM\Column(type="string", nullable=false)
+     */
     protected $team;
 
     /**
@@ -372,6 +377,24 @@ class Client {
         return $this->status;
     }
 
+    /**
+     * @param mixed $birthDate
+     * @return Client
+     */
+    public function setBirthDate($birthDate)
+    {
+        $this->birthDate = $birthDate;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBirthDate()
+    {
+        return $this->birthDate;
+    }
 
 
 }
