@@ -105,6 +105,14 @@ class AdminController extends Controller
         }
 
         $client->setName( $request->request->get('name') );
+        $client->setLastName( $request->request->get('lastName') );
+        $client->setCategory( $request->request->get('category') );
+        $client->setTeam( $request->request->get('team') );
+        $client->setPhoneNumber( $request->request->get('phoneNumber') );
+        $client->setEmail( $request->request->get('email') );
+        $client->setSwimTime( $request->request->get('swimTime') );
+        $client->setHasPayed( $request->request->get('hasPayed') );
+        $client->setBirthDate( $request->request->get('birthDate') );
 
     }
 
