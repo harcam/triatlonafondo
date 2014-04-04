@@ -420,7 +420,4 @@ class Client {
         return $this->paymentReference;
     }
 
-
-
-
 }

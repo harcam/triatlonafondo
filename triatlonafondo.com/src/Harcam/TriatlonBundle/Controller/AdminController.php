@@ -148,6 +148,21 @@ class AdminController extends Controller
 
         $em->flush();
 
+        // Send Email
+        // Send the email
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Registro Tritanes')
+            ->setFrom( $this->container->getParameter('mailer_user') )
+            ->setTo($client->getEmail())
+            ->setBody(
+                $this->renderView(
+                    'HarcamTriatlonBundle:Email:confirmation.html.twig',
+                    array('client' => $client)
+                ), 'text/html');
+
+        $this->get('mailer')->send($message);
+
+
         $msg = "Registered payment [" . $request->request->get('paymentReference') . "] succesfully!";
 
         return $this->render('HarcamTriatlonBundle:Admin:detail.html.twig',
