@@ -46,7 +46,6 @@ class RegistrationController extends Controller
         $data['team'] = $request->request->get('team');
         $data['swimTime'] = $request->request->get('swimTime');
         $data['phoneNumber'] = $request->request->get('phoneNumber');
-        $data['FMTRI'] = $request->request->get('FMTRI');
 
         // Check for errors
         $error = false;
@@ -62,8 +61,6 @@ class RegistrationController extends Controller
             $error = 5;
         } elseif($data['birthDate'] == "") {
             $error = 6;
-        } elseif($data['FMTRI'] == "") {
-            $error = 7;
         }
 
         if($error)
@@ -98,7 +95,7 @@ class RegistrationController extends Controller
         $client->setTeam($data['team']);
         $client->setSwimTime( $this->swimTimeToSeconds($data['swimTime']) );
         $client->setPhoneNumber($data['phoneNumber']);
-        $client->setFMTRI($data['FMTRI']);
+
         // Save to the database
         $em->persist($client);
         $em->flush();
