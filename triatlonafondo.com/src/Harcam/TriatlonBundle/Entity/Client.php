@@ -64,6 +64,11 @@ class Client {
     /**
      * @ORM\Column(type="datetime", nullable=false)
      */
+    protected $FMTRI;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=false)
+     */
     protected $creationTime;
 
     /**
@@ -306,6 +311,25 @@ class Client {
         return $this->phoneNumber;
     }
 
+    
+    /**
+     * @param mixed $phoneNumber
+     * @return Client
+     */
+    public function setFMTRI($FMTRI)
+    {
+        $this->phoneNumber = $FMTRI;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFMTRI()
+    {
+        return $this->FMTRI;
+    }
     /**
      * @param mixed $team
      * @return Client

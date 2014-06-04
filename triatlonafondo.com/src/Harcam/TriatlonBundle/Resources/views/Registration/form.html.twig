@@ -133,6 +133,13 @@
                        {% if data is defined %} value="{{ data.birthDate }}" {% endif %}
                     >
             </div>
+            
+            <div class="pure-control-group">
+                <label for="FMTRI">Afiliación FMTRI</label>
+                <input id="FMTRI" name="FMTRI" type="text" placeholder=""
+                       {% if data is defined %} value="{{ data.FMTRI }}" {% endif %}
+                    >
+            </div>
 
             <div class="pure-controls">
                 <button type="submit" class="pure-button pure-button-primary">Inscribir</button>
