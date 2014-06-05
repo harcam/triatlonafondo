@@ -52,6 +52,11 @@ class Client {
     protected $phoneNumber;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $Affiliation;
+    
+    /**
      * @ORM\Column(type="string", nullable=false, unique=true)
      */
     protected $email;
@@ -310,6 +315,26 @@ class Client {
      * @param mixed $team
      * @return Client
      */
+    public function setAffiliation($Affiliation)
+    {
+        $this->Affiliation = $Affiliation;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAffiliation()
+    {
+        return $this->Affiliation;
+    }
+
+    /**
+     * @param mixed $team
+     * @return Client
+     */
+    
     public function setTeam($team)
     {
         $this->team = $team;

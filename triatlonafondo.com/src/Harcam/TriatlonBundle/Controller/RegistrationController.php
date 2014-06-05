@@ -46,6 +46,7 @@ class RegistrationController extends Controller
         $data['team'] = $request->request->get('team');
         $data['swimTime'] = $request->request->get('swimTime');
         $data['phoneNumber'] = $request->request->get('phoneNumber');
+        $data['Affiliation'] = $request->request->get('Affiliation');
 
         // Check for errors
         $error = false;
@@ -95,7 +96,8 @@ class RegistrationController extends Controller
         $client->setTeam($data['team']);
         $client->setSwimTime( $this->swimTimeToSeconds($data['swimTime']) );
         $client->setPhoneNumber($data['phoneNumber']);
-
+        $client->setAffiliation($data['Affiliation']);
+        
         // Save to the database
         $em->persist($client);
         $em->flush();

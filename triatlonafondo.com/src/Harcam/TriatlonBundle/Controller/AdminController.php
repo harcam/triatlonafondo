@@ -122,6 +122,7 @@ class AdminController extends Controller
         $client->setEmail( $request->request->get('email') );
         $client->setSwimTime( $request->request->get('swimTime') );
         $client->setBirthDate( $request->request->get('birthDate') );
+        $client->setAffiliation( $request->request->get('Affiliation'));
 
         $em->persist($client);
         $em->flush($client);
